@@ -1,3 +1,5 @@
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](SKILL.md) và [WORKFLOW.md](WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](MISSING_ASSETS.md).
+
 # Apple UI Kit — Kiểm tra phần iPhone Duo
 
 > Kiểm tra ngày 2026-10-06 bằng Figma connector, chỉ đọc. Không chỉnh sửa kit. Kết quả dùng để chuẩn bị layout SmartHue, chưa xác nhận hành vi runtime.
@@ -118,14 +120,14 @@ Agent tự điền bằng đọc cấu trúc và ảnh thực tế; không bắt
 
 **Bindings/modes:** nested tab/BG đang có binding Mode tới `VariableID:1cb838901f40f3393f5c906bddcd9a8c46740dca/10456:201`; giữ binding khi làm Figma, chưa resolve collection/modes của alias này. Local collections đã đọc: Typography `19034:31763`, Kit `23872:11238`, Colors `23872:11240` với Light `404:0` và Dark `404:1`. Việc Colors có Dark không chứng minh alias Appearance của kit đã map đúng collection này. Render kit đã xem ở mode hiện tại (light); HTML dark dựa Home nguồn, không ghi đã thử dark kit.
 
-Raw evidence: [inventory](demo-home/local-duo-inventory.json), [geometry/properties/bindings](demo-home/local-duo-geometry.json). Đây là audit phần liên quan Home-A, không phải toàn thư viện đã kiểm chứng.
+Raw evidence: inventory — `demo-home/local-duo-inventory.json` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md), geometry/properties/bindings — `demo-home/local-duo-geometry.json` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md). Đây là audit phần liên quan Home-A, không phải toàn thư viện đã kiểm chứng.
 
-Output lượt này là [Home-A v2 HTML](demo-home/home-a-v2.html) có mapping, chưa tạo hoặc sửa instance Figma. WF05 cho phép CSS đơn giản ở preview; linked instances thật phải dùng khi hoàn thiện Figma. Home-A v1 chrome tái dựng vẫn là giới hạn lịch sử.
+Output lượt này là Home-A v2 HTML — `demo-home/home-a-v2.html` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) có mapping, chưa tạo hoặc sửa instance Figma. WF05 cho phép CSS đơn giản ở preview; linked instances thật phải dùng khi hoàn thiện Figma. Home-A v1 chrome tái dựng vẫn là giới hạn lịch sử.
 
 
 ## Read-back Figma Home-A v2 — local component reuse hoàn tất, 2026-10-06
 
-File đích SmartHue `mklhEcafiTfj9FoGIUhA0M`, page Home; output trong board [24764:3926](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24764-3926). Instance outputs: [JSON evidence](demo-home/home-a-v2-figma-review.json).
+File đích SmartHue `mklhEcafiTfj9FoGIUhA0M`, page Home; output trong board [24764:3926](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24764-3926). Instance outputs: JSON evidence — `demo-home/home-a-v2-figma-review.json` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md).
 
 | Vai trò | Main local | Output |
 | --- | --- | --- |
@@ -140,10 +142,10 @@ File đích SmartHue `mklhEcafiTfj9FoGIUhA0M`, page Home; output trong board [24
 
 Appearance alias `VariableID:1cb838901f40f3393f5c906bddcd9a8c46740dca/10456:201` resolves Dark and remains bound on tab instances. Root selects Dark for kit appearance collections `.../10456:163` and local Colors `VariableCollectionId:23872:11240`, mode `404:1`. Screen frames match template bounds. Read-back found zero unlinked instances.
 
-26 transparent target specification frames across screens/state examples are ≥44 × 44 and within parent bounds. This is design documentation only. Screenshots: [inner](demo-home/home-a-v2-figma-inner.png), [outer](demo-home/home-a-v2-figma-outer.png), [board/states](demo-home/home-a-v2-figma.png).
+26 transparent target specification frames across screens/state examples are ≥44 × 44 and within parent bounds. This is design documentation only. Screenshots: inner — `demo-home/home-a-v2-figma-inner.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md), outer — `demo-home/home-a-v2-figma-outer.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md), board/states — `demo-home/home-a-v2-figma.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md).
 
 ## RV02 — Home-A v3, feedback01–03 — 2026-10-07
 
-User annotate tại trang review RV01, yêu cầu “xử lý các feedback này”: inner ngang chia hai vùng bằng nhau, card đèn bớt giãn, spacing/font/radius/padding theo bội số4. Đã sửa trên bản sao [Home-A v3](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24805-6013), inner24805:6014/outer24805:6947; source24803:5700 giữ nguyên. Hai vùng396–396, gutter24; card inner188×208/outer164×208. Custom tokens đã kiểm tra theo4; giữ native kit/artwork intrinsic và ghi rõ ngoại lệ do agent áp dụng, chưa user xác nhận riêng. Không thêm UI. Đây là quyền sửa scope Home-A cụ thể, chưa nghiệm thu kết quả. Chi tiết/evidence: [review v3](reviews/2026-10-07-home-a-v3/README.md), [render](reviews/2026-10-07-home-a-v3/frame.png), [read-back](reviews/2026-10-07-home-a-v3/review.json), [invariants](reviews/2026-10-07-home-a-v3/invariants.json). Preview tiếp tục annotate: http://127.0.0.1:8767/after.html ; trang cũ giữ nguyên.
+User annotate tại trang review RV01, yêu cầu “xử lý các feedback này”: inner ngang chia hai vùng bằng nhau, card đèn bớt giãn, spacing/font/radius/padding theo bội số4. Đã sửa trên bản sao [Home-A v3](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24805-6013), inner24805:6014/outer24805:6947; source24803:5700 giữ nguyên. Hai vùng396–396, gutter24; card inner188×208/outer164×208. Custom tokens đã kiểm tra theo4; giữ native kit/artwork intrinsic và ghi rõ ngoại lệ do agent áp dụng, chưa user xác nhận riêng. Không thêm UI. Đây là quyền sửa scope Home-A cụ thể, chưa nghiệm thu kết quả. Chi tiết/evidence: review v3 — `reviews/2026-10-07-home-a-v3/README.md` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md), render — `reviews/2026-10-07-home-a-v3/frame.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md), read-back — `reviews/2026-10-07-home-a-v3/review.json` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md), invariants — `reviews/2026-10-07-home-a-v3/invariants.json` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md). Preview tiếp tục annotate: http://127.0.0.1:8767/after.html ; trang cũ giữ nguyên.
 
 Ref tiếp tục ghi chú REF-02 đã xem trong Home-A. Read-back: 556 token checks có phạm vi không lỗi; 99/99 instances vẫn linked, mains/properties/modes giữ nguồn; text contents giữ nguyên. Native geometry giữ nguyên. Trade-off: vùng grid/card nhỏ hơn làm slider ngắn hơn, cân lại vùng nhóm/phòng; công QA/token mapping bổ sung, không đổi feature. Chưa có dữ liệu usability/ROI; đo task completion/time/mis-tap và kiểm tra native targets, scroll/resize, Dynamic Type, VoiceOver, lệnh đèn trên runtime.

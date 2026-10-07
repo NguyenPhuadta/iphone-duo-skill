@@ -1,3 +1,5 @@
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](SKILL.md) và [WORKFLOW.md](WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](MISSING_ASSETS.md).
+
 # Review phản biện workflow Duo
 
 > Review tài liệu ngày 2026-10-06. Chưa có flow SmartHue thực tế, số vòng sửa, thời gian bàn giao, dữ liệu lỗi hoặc usability test. Nhận định dưới đây dựa trên các khoảng trống nhìn thấy trong brief/workflow/audit; không phải đo hiệu quả workflow.

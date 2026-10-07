@@ -1,3 +1,5 @@
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](SKILL.md) và [WORKFLOW.md](WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](MISSING_ASSETS.md).
+
 # Home-A — Đề xuất v0.1 và quyết định hoàn thiện v1.0
 
 > 2026-10-06 • User đã duyệt “Duyệt Home-A, hoàn thiện demo”. Proposal dưới đây giữ để đối chiếu phạm vi; demo v1.0 đã hoàn thiện, xem [HOME_DEMO_HANDOFF.md](HOME_DEMO_HANDOFF.md). Không phải bằng chứng runtime.
@@ -8,7 +10,7 @@
 - [Section Test được user chỉ định](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24744-5188): trống lúc bắt đầu; chỉ thêm wrapper nháp bên trong, giữ UI nguồn và kit.
 - [Board Home-A v0.1](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24746-3613).
 - [Inner landscape](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24746-3614) và [Outer portrait](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24746-3615).
-- [Ảnh review của board](demo-home/board.png). Frame 951 × 669 và 466 × 678 lấy từ kit, chưa xác nhận points/safe areas runtime.
+- Ảnh review của board — `demo-home/board.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md). Frame 951 × 669 và 466 × 678 lấy từ kit, chưa xác nhận points/safe areas runtime.
 
 ## Hiểu Home hiện tại
 

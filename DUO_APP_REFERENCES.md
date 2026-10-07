@@ -1,3 +1,5 @@
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](SKILL.md) và [WORKFLOW.md](WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](MISSING_ASSETS.md).
+
 # SmartHue — Nguồn ref hình ảnh app trên iPhone Duo
 
 > Research ngày 2026-10-06. Đây là danh mục nguồn và hướng dùng, chưa phải thư viện ảnh đã tải hoặc moodboard được duyệt. Mục tiêu: bổ sung ví dụ có nội dung thực để nghiên cứu bố cục, hierarchy và tương tác, cùng HIG và kit.

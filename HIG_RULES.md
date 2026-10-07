@@ -1,3 +1,5 @@
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](SKILL.md) và [WORKFLOW.md](WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](MISSING_ASSETS.md).
+
 # SmartHue — Quy tắc thiết kế theo Apple HIG
 
 > Kiểm tra nguồn ngày 2026-10-06. Áp dụng cho việc thiết kế/review Home, điều khiển từng đèn, OB và kết nối thiết bị trên iPhone Duo.

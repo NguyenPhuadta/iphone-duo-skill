@@ -1,3 +1,5 @@
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](SKILL.md) và [WORKFLOW.md](WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](MISSING_ASSETS.md).
+
 # iPhone Duo — Research liên quan đến layout
 
 > Nguồn Apple đã kiểm tra ngày 2026-10-06; trong lần đóng gói đã mở lại Newsroom, HIG Duo và Apple Design Resources. Các nguồn còn lại giữ phạm vi kiểm tra trong bản research ban đầu. Bản bàn giao lược bỏ giá bán, thông số vật lý không dùng cho layout và công việc App Store. Chưa kiểm thử SmartHue trên simulator hoặc máy thật.

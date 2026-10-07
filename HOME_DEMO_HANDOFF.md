@@ -1,3 +1,5 @@
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](SKILL.md) và [WORKFLOW.md](WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](MISSING_ASSETS.md).
+
 # Home-A v2 — Handoff Figma
 
 > 2026-10-06. User duyệt HTML v2 và yêu cầu dựng lại trong Figma. Bản v2 đã tạo trong section Test, chờ user tự review.
@@ -7,12 +9,12 @@
 | Artifact | Link / bằng chứng |
 | --- | --- |
 | Board hoàn thiện v2 | [Home-A v2 — Test](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue?node-id=24764-3926) |
-| Inner landscape, dark — 951 × 669 | [Figma](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue?node-id=24764-3931), [PNG](demo-home/home-a-v2-figma-inner.png) |
-| Outer portrait, dark — 466 × 678 | [Figma](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue?node-id=24764-3951), [PNG](demo-home/home-a-v2-figma-outer.png) |
+| Inner landscape, dark — 951 × 669 | [Figma](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue?node-id=24764-3931), PNG — `demo-home/home-a-v2-figma-inner.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
+| Outer portrait, dark — 466 × 678 | [Figma](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue?node-id=24764-3951), PNG — `demo-home/home-a-v2-figma-outer.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
 | Bảng states và handoff checks | [Figma](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue?node-id=24770-4253) |
-| Render toàn board | [PNG](demo-home/home-a-v2-figma.png) |
-| Read-back cấu trúc/bounds | [JSON](demo-home/home-a-v2-figma-review.json) |
-| HTML đã duyệt phương án | [home-a-v2.html](demo-home/home-a-v2.html) |
+| Render toàn board | PNG — `demo-home/home-a-v2-figma.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
+| Read-back cấu trúc/bounds | JSON — `demo-home/home-a-v2-figma-review.json` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
+| HTML đã duyệt phương án | home-a-v2.html — `demo-home/home-a-v2.html` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
 
 ## Component và bằng chứng
 
@@ -44,11 +46,11 @@ Bản [Home-A v1.0](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id
 | Artifact | Link / bằng chứng |
 | --- | --- |
 | Board hoàn thiện trong section Test | [24751:3613](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24751-3613) |
-| Inner landscape, dark — 951 × 669 | [24751:3614](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24751-3614), [PNG](demo-home/home-a-inner.png) |
-| Outer portrait, dark — 466 × 678 | [24751:3615](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24751-3615), [PNG](demo-home/home-a-outer.png) |
-| Bảng On / Off / Disconnect / Unreachable và spec lệnh | [24751:3616](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24751-3616), [PNG](demo-home/home-a-states.png) |
-| Render toàn board | [home-a-final.png](demo-home/home-a-final.png) |
-| Kiểm tra geometry sau chỉnh sửa | [review-geometry.json](demo-home/review-geometry.json) |
+| Inner landscape, dark — 951 × 669 | [24751:3614](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24751-3614), PNG — `demo-home/home-a-inner.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
+| Outer portrait, dark — 466 × 678 | [24751:3615](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24751-3615), PNG — `demo-home/home-a-outer.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
+| Bảng On / Off / Disconnect / Unreachable và spec lệnh | [24751:3616](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24751-3616), PNG — `demo-home/home-a-states.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
+| Render toàn board | home-a-final.png — `demo-home/home-a-final.png` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
+| Kiểm tra geometry sau chỉnh sửa | review-geometry.json — `demo-home/review-geometry.json` (thiếu trong ZIP nguồn; xem MISSING_ASSETS.md) |
 | Nguồn, proposal và trade-off | [HOME_DEMO_PROPOSAL.md](HOME_DEMO_PROPOSAL.md) |
 
 Kích thước lấy từ canvas UI Kit. Chưa xác minh ánh xạ points, system safe areas hoặc camera trên simulator. Board thứ ba là tài liệu trạng thái, không phải một snapshot phòng có dữ liệu tổng hợp.
