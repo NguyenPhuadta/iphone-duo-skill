@@ -106,3 +106,11 @@ Trade-off: HTML thuận tiện review ngay trong Codex và giới hạn công d�
 5. **Review:** read-back main component/variant và bindings của instance thực tế trong output; ghi node bằng chứng và ngoại lệ. Không chỉ dựa vào hình giống kit hoặc tên layer để báo đã dùng component. HTML đề xuất được minh họa bằng CSS đơn giản, có mapping tới component dự kiến; không cần clone Figma library thành code hoặc ghi wireframe vào Figma.
 
 Trade-off: designer bỏ thêm công tìm và map component trước đề xuất; đổi lại team có thể giữ consistency và giảm công bảo trì các bản dựng trùng, chưa có số liệu khẳng định tiết kiệm thời gian. Giới hạn variant của thư viện có thể ảnh hưởng flexibility; xử lý gap cụ thể thay vì phá liên kết. Kiểm chứng bằng inventory/output mapping, số component có sẵn bị dựng lại hoặc detach không có lý do, và số lỗi variant/bindings sau review; chưa đặt target thời gian khi thiếu baseline.
+
+
+## WF07 — Grid bội số 4 và feedback Home, 2026-10-07
+
+- **Yêu cầu user:** spacing, cỡ text, corner radius, padding và thông số UI phải theo bội số 4. Dùng bước 4 cho token UI SmartHue; kiểm tra gap/padding/radius/font-size/line-height và kích thước custom card/container trước bàn giao. Đây là rule của user, không phải yêu cầu Apple HIG.
+- **Home-A inner landscape:** hai vùng phòng/nhóm và đèn bằng nhau về chiều rộng trong usable content sau rail/margins. Không để grid đèn rộng hơn; không stretch card để lấp đầy chiều cao. User chốt cho Home, không tự áp hai cột lên mọi flow.
+- **Xung đột với kit — cách xử lý hiện tại của agent:** giữ kích thước màn 951×669 / 466×678, safe-area/chrome và intrinsic của linked Apple controls, artwork, glyphs. Các số này có thể không chia hết cho4; không sửa main/detach/làm méo hình để ép grid. Ghi ngoại lệ cụ thể trong decision/spec, không tuyên bố mọi node đều chia hết cho4. Đây là cách dung hòa WF05, chưa có xác nhận riêng của user về ngoại lệ.
+- Typography custom đang bind vào leading22 có thể được override trên instance và bind lại token custom24; giữ font/color bindings, không đổi variable chung của nguồn/Apple kit.

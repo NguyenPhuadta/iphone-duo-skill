@@ -89,3 +89,9 @@ Không có design system riêng không đồng nghĩa không có component. Ngư
 ## Demo lại theo rule mới — 2026-10-06
 
 User yêu cầu gen lại Home-A; đã có [preview HTML v2](demo-home/home-a-v2.html) trong Codex, giữ cấu trúc đã duyệt và có mapping components local vừa kiểm tra. Chưa ghi kết quả v2 vào Figma. Raw inventory/giới hạn trong [audit](APPLE_UI_KIT_AUDIT.md), scope/review trong [SCREEN_SPECS.md](SCREEN_SPECS.md); các ghi chú “chưa audit” trước đó là lịch sử trước DEMO02.
+
+## RV02 — Home-A v3, feedback01–03 — 2026-10-07
+
+User annotate tại trang review RV01, yêu cầu “xử lý các feedback này”: inner ngang chia hai vùng bằng nhau, card đèn bớt giãn, spacing/font/radius/padding theo bội số4. Đã sửa trên bản sao [Home-A v3](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24805-6013), inner24805:6014/outer24805:6947; source24803:5700 giữ nguyên. Hai vùng396–396, gutter24; card inner188×208/outer164×208. Custom tokens đã kiểm tra theo4; giữ native kit/artwork intrinsic và ghi rõ ngoại lệ do agent áp dụng, chưa user xác nhận riêng. Không thêm UI. Đây là quyền sửa scope Home-A cụ thể, chưa nghiệm thu kết quả. Chi tiết/evidence: [review v3](reviews/2026-10-07-home-a-v3/README.md), [render](reviews/2026-10-07-home-a-v3/frame.png), [read-back](reviews/2026-10-07-home-a-v3/review.json), [invariants](reviews/2026-10-07-home-a-v3/invariants.json). Preview tiếp tục annotate: http://127.0.0.1:8767/after.html ; trang cũ giữ nguyên.
+
+Ref tiếp tục ghi chú REF-02 đã xem trong Home-A. Read-back: 556 token checks có phạm vi không lỗi; 99/99 instances vẫn linked, mains/properties/modes giữ nguồn; text contents giữ nguyên. Native geometry giữ nguyên. Trade-off: vùng grid/card nhỏ hơn làm slider ngắn hơn, cân lại vùng nhóm/phòng; công QA/token mapping bổ sung, không đổi feature. Chưa có dữ liệu usability/ROI; đo task completion/time/mis-tap và kiểm tra native targets, scroll/resize, Dynamic Type, VoiceOver, lệnh đèn trên runtime.

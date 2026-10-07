@@ -1,6 +1,6 @@
 # SmartHue — Gói bàn giao layout iPhone Duo
 
-> Snapshot v1.7 • 2026-10-06 • Ngôn ngữ: tiếng Việt.
+> Snapshot v1.8 • 2026-10-07 • Ngôn ngữ: tiếng Việt.
 
 Gửi toàn bộ folder này hoặc file ZIP đi kèm cho designer/agent. Các tài liệu và link nội bộ hoạt động khi folder được chuyển sang máy khác; không cần repository SmartHue hoặc lịch sử chat. Gói gồm hướng dẫn và Home-A v1 lịch sử và bản Home-A v2 Figma editable, PNG là bằng chứng render của v1 và v2. Chưa phải toàn bộ UI SmartHue hoàn chỉnh.
 
@@ -68,3 +68,7 @@ Thêm [Home-A v2 HTML](demo-home/home-a-v2.html) độc lập theo WF04, ảnh i
 ## Thay đổi v1.6 — 2026-10-06
 
 Đã dựng [Home-A v2 trong Figma](https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/?node-id=24764-3926) theo HTML v2 được user duyệt. Kèm render inner/outer/board và read-back. Local linked Duo instances, Dark bindings, source light cards và 26 target spec frames đã được xác minh ở mức thiết kế. Đang chờ user review; runtime chưa kiểm chứng.
+
+## Thay đổi v1.8 — 2026-10-07
+
+WF07: token UI custom theo bội số4; Home inner hai vùng bằng nhau/card gọn. [Home-A v3](reviews/2026-10-07-home-a-v3/README.md) xử lý ba feedback, gồm render/checks. Ngoại lệ kit/intrinsic ghi rõ; chưa user nghiệm thu hoặc runtime QA. Giữ source/linked components, không thêm UI.

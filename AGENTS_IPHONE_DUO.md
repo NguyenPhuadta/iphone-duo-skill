@@ -55,3 +55,11 @@ Người dùng xác nhận đã setup đầy đủ component iPhone Duo trong fi
 ## Home-A v2 — 2026-10-06
 
 Đã tạo [preview HTML v2](demo-home/home-a-v2.html), audit component Duo trong file SmartHue và map template/tab bar/toolbar cho Home. Giữ cấu trúc Home-A đã duyệt; chưa tạo Figma v2 hoặc nghiệm thu user. Đọc [spec](SCREEN_SPECS.md), [audit](APPLE_UI_KIT_AUDIT.md) và raw evidence để biết scope/giới hạn mới; các ghi chú chưa audit phía trên là lịch sử.
+
+
+## WF07 — Grid bội số 4 và feedback Home, 2026-10-07
+
+- **Yêu cầu user:** spacing, cỡ text, corner radius, padding và thông số UI phải theo bội số 4. Dùng bước 4 cho token UI SmartHue; kiểm tra gap/padding/radius/font-size/line-height và kích thước custom card/container trước bàn giao. Đây là rule của user, không phải yêu cầu Apple HIG.
+- **Home-A inner landscape:** hai vùng phòng/nhóm và đèn bằng nhau về chiều rộng trong usable content sau rail/margins. Không để grid đèn rộng hơn; không stretch card để lấp đầy chiều cao. User chốt cho Home, không tự áp hai cột lên mọi flow.
+- **Xung đột với kit — cách xử lý hiện tại của agent:** giữ kích thước màn 951×669 / 466×678, safe-area/chrome và intrinsic của linked Apple controls, artwork, glyphs. Các số này có thể không chia hết cho4; không sửa main/detach/làm méo hình để ép grid. Ghi ngoại lệ cụ thể trong decision/spec, không tuyên bố mọi node đều chia hết cho4. Đây là cách dung hòa WF05, chưa có xác nhận riêng của user về ngoại lệ.
+- Typography custom đang bind vào leading22 có thể được override trên instance và bind lại token custom24; giữ font/color bindings, không đổi variable chung của nguồn/Apple kit.
