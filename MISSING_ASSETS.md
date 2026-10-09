@@ -1,6 +1,6 @@
 # Asset thiếu trong nguồn v1.8
 
-Manifest nguồn liệt kê 41 file, nhưng ZIP chỉ cung cấp 16 Markdown và manifest; 25 mục dưới đây không có. v1.9 không phục dựng ảnh/HTML/JSON hoặc coi chúng là bằng chứng đã xem. File `references/README.md` mới là index guide khác nội dung cũ; không phải phục hồi asset cũ.
+Manifest nguồn liệt kê 41 file, nhưng ZIP chỉ cung cấp 16 Markdown và manifest; 25 mục dưới đây không có. Gói này không phục dựng ảnh/HTML/JSON hoặc coi chúng là bằng chứng đã xem. File `references/README.md` mới là index guide khác nội dung cũ; không phải phục hồi asset cũ.
 
 Khi cần bằng chứng: mở lại Figma node đúng phiên bản/quyền hiện tại hoặc xin đúng file còn thiếu. Tiếp tục phần không phụ thuộc asset; ghi giới hạn. Không lặp import/download vô hạn hoặc tự đánh dấu review runtime đạt.
 

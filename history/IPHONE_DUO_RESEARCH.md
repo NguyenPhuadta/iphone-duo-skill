@@ -1,3 +1,7 @@
+> ARCHIVE v1.9 — chỉ tra cứu nguồn/quyết định quá khứ. Các lệnh thao tác và trạng thái bên dưới không điều khiển task hiện tại. Quy trình hiện hành ở [SKILL](../SKILL.md); trạng thái màn ở [SCREEN_SPECS](../SCREEN_SPECS.md).
+
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](../SKILL.md) và [WORKFLOW.md](../WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](../PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](../MISSING_ASSETS.md).
+
 # iPhone Duo — Research liên quan đến layout
 
 > Nguồn Apple đã kiểm tra ngày 2026-10-06; trong lần đóng gói đã mở lại Newsroom, HIG Duo và Apple Design Resources. Các nguồn còn lại giữ phạm vi kiểm tra trong bản research ban đầu. Bản bàn giao lược bỏ giá bán, thông số vật lý không dùng cho layout và công việc App Store. Chưa kiểm thử SmartHue trên simulator hoặc máy thật.
@@ -6,7 +10,7 @@
 
 iPhone Duo có màn ngoài khi đóng và màn trong khi mở. Brief nhắm đến trải nghiệm thích ứng theo vùng app, không suy số frame/columns từ tên thiết bị. Nguồn: [Apple Newsroom](https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/).
 
-Kích thước mẫu dùng thiết kế nằm trong [APPLE_UI_KIT_AUDIT.md](APPLE_UI_KIT_AUDIT.md); đây là canvas units Figma. Scale, safe areas và vùng runtime chưa xác minh. Không chia pixel phần cứng để thay frame kit hoặc dùng ảnh bezel làm content bounds.
+Kích thước mẫu dùng thiết kế nằm trong [APPLE_UI_KIT_AUDIT.md](../APPLE_UI_KIT_AUDIT.md); đây là canvas units Figma. Scale, safe areas và vùng runtime chưa xác minh. Không chia pixel phần cứng để thay frame kit hoặc dùng ảnh bezel làm content bounds.
 
 ## Hành vi bố cục cần hiểu
 
@@ -48,9 +52,14 @@ Nguồn: [Leverage multiple displays and scenes](https://developer.apple.com/vid
 
 Nguồn: [Prepare your app for iPhone Duo](https://developer.apple.com/videos/play/tech-talks/111461/).
 
-Apple cung cấp Figma/Sketch design kits cho Duo. Có thể dùng làm nền cho patterns hệ thống khi SmartHue chưa có design system riêng; vẫn cần định nghĩa visual rules và components đặc thù điều khiển đèn. Cập nhật ngày 2026-10-06: đã kiểm tra phần Duo của file Figma Community người dùng cung cấp, lưu trong [audit kit](APPLE_UI_KIT_AUDIT.md); chưa chạy simulator.
+Apple cung cấp Figma/Sketch design kits cho Duo. Có thể dùng làm nền cho patterns hệ thống khi SmartHue chưa có design system riêng; vẫn cần định nghĩa visual rules và components đặc thù điều khiển đèn. Cập nhật ngày 2026-10-06: đã kiểm tra phần Duo của file Figma Community người dùng cung cấp, lưu trong [audit kit](../APPLE_UI_KIT_AUDIT.md); chưa chạy simulator.
 
 Nguồn: [Thông báo design kits](https://developer.apple.com/news/?id=nyuppv9r), [Apple Design Resources](https://developer.apple.com/design/resources/).
 
+## Áp dụng vào scope SmartHue
 
-Chỉ tra chủ đề ảnh hưởng quyết định hiện tại. API/SDK phải kiểm tra availability khi triển khai; snapshot và research không chứng minh runtime. Current task/source ở SCREEN_SPECS; lịch sử ở [archive](history/IPHONE_DUO_RESEARCH.md).
+Đề xuất bố cục dựa trên tác vụ và vùng sử dụng thực. Danh sách cạnh detail chỉ là một khả năng để cân nhắc sau khi đọc UI; chưa được duyệt. Giữ nội dung và controls core tiếp cận được khi vùng hẹp, selection/bước luồng/giá trị đang chỉnh có continuity. Behavior và giới hạn lệnh cần dev xác nhận; không mặc định resize gửi lại lệnh.
+
+Đối chiếu [HIG_RULES.md](../HIG_RULES.md) và dùng [DELIVERY_CHECKLIST.md](../DELIVERY_CHECKLIST.md) để đề xuất coverage. Đặc điểm nền tảng không tự duyệt mọi cấu hình, states hoặc tính năng nhiều màn cho SmartHue.
+
+Phần còn thiếu: UI nguồn, task/scope, stack/SDK, capability/permission theo integration và runtime bounds. Không dùng độ tuân thủ HIG hoặc hình thức layout làm bằng chứng hiệu quả người dùng; baseline/QA vẫn cần thu thập.

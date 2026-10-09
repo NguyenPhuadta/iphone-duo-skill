@@ -18,7 +18,7 @@ Mở khi nội dung/control va chạm reserved region hoặc cần reflow. Bản
 4. Nếu vẫn thiếu chỗ, dùng scroll phù hợp để chức năng vẫn truy cập được; không coi control đang bị fold che là đạt chỉ vì container scroll được.
 5. Giữ selection/value/bước luồng, tránh nhảy nhóm điều khiển xa khi gập. Tabletop chỉ đưa controls xuống phần dễ chạm nếu phù hợp nội dung và scope.
 
-Với Home inner, cân bằng hai vùng trong usable area và giữ rule card gọn. Nếu geometry fold thực tế không thể cùng thỏa pane bằng rộng/grid4/kit, ghi xung đột và đưa phương án cụ thể; không âm thầm bỏ một yêu cầu.
+Với Home inner landscape, dùng [Home content bounds](iphone-duo-safe-area-guide.md#home-content-bounds) và giữ rule card theo nội dung. Nếu geometry fold thực tế không thể cùng thỏa pane bằng rộng/grid4/kit, ghi xung đột và đưa phương án cụ thể; không âm thầm bỏ một yêu cầu.
 
 ## Geometry không được suy đoán
 

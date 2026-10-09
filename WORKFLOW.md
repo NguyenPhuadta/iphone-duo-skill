@@ -1,23 +1,31 @@
-# Workflow SmartHue Duo — v1.9
+# Workflow SmartHue Duo — v2.0
 
-## Chọn đường đi trước
+Review: hiểu task → nguồn liên quan → findings. Fix đã duyệt: hiểu task → nguồn liên quan → sửa → kiểm tra. Phương án mới: chạy đủ các chặng dưới. Handoff/code chỉ đọc contract/readiness khi thuộc yêu cầu. Không dùng phương án mới làm quy trình mặc định cho mọi task.
 
-- Review: xem source/ảnh → guide đúng chủ đề → findings có bằng chứng. Không cần HTML hoặc duyệt proposal để đưa nhận xét.
-- Sửa trong scope đã duyệt: đọc decision/spec liên quan → kiểm tra nguồn đang sửa → sửa → review phần thay đổi. Giữ approval hiện có.
-- Layout/proposal mới: thực hiện các bước bên dưới.
-- Code/handoff runtime: đọc readiness; việc thiết kế không bắt đầu bằng cài SDK hoặc sửa build settings.
+| Chặng | Việc thực hiện | Bằng chứng tối thiểu để chuyển tiếp |
+| --- | --- | --- |
+| 1. Hiểu task | Đọc source, task/hierarchy/actions/states; xác định giữ/đổi và output | Node/ảnh/version + scope + quyền hiện có. Chỉ hỏi dependency thật sự chặn quyết định |
+| 2. Kiểm tra nguồn liên quan | Kit local trước → HIG liên quan → ảnh ref sau. Chỉ kiểm tra component/geometry quyết định layout | Mapping component và container liên quan; rule được dùng; ảnh ref thực sự đã xem hoặc giới hạn nguồn |
+| 3. Đề xuất và duyệt | HTML tối giản khối/nhãn, ID/version; preview. Trình giữ/đổi, trade-off, coverage và dependencies | File HTML + preview đã xem + scope được user duyệt. Quyền dựng HTML đã có; approval cũ giữ hiệu lực trong cùng scope |
+| 4. Thực hiện | Figma editable ở đích được giao; reuse linked instances, custom grid4, geometry theo container | Output node + component mapping. Main/source không bị sửa ngoài quyền; phần xung đột được ghi cụ thể |
+| 5. Kiểm tra và bàn giao | Đọc lại phần đổi, xem render; đối chiếu scope/source và guide liên quan | Node/ảnh sau sửa + kết quả read-back + phần đạt/cần sửa/chưa kiểm chứng |
 
-## Phương án mới
+## Chặn đúng phần việc
 
-1. **Hiểu nguồn.** Tự đọc link/material, ghi mục đích, entry/exit, hierarchy, UI elements/action/state giữ nguyên. Phân biệt observed/inferred/confirmed; chỉ hỏi thông tin còn thiếu ảnh hưởng quyết định. Figma không chứng minh ACK/rollback/lệnh đèn.
-2. **Kit local trước.** Đọc phần liên quan trong [APPLE_UI_KIT_AUDIT](APPLE_UI_KIT_AUDIT.md), kiểm tra component trong file SmartHue, đặc biệt `Safe Area Insets and Margins` node `24731:15441`. Ghi node/main ID, properties/variants, modes/bindings, ảnh đã xem. Dùng [safe-area v2](references/guides/iphone-duo-safe-area-guide.md) cho phép đo đúng pose/container; snapshot không thay kiểm tra nguồn khi kit đổi.
-3. **HIG/rule.** Chọn rule liên quan trong [HIG_RULES](HIG_RULES.md), rồi guide adaptive/bars/panes theo vấn đề. Nguồn và ngày phải rõ; không biến recommendation thành yêu cầu bắt buộc hoặc coi bản Community là tài liệu Apple đã xác minh.
-4. **Ảnh ref sau.** Xem ảnh phù hợp trong [DUO_APP_REFERENCES](DUO_APP_REFERENCES.md); ghi ref ID, hierarchy/mật độ/spacing/type/màu/control học được và phần không áp dụng. Có thể dùng ảnh đã xem trong cùng phiên bản; không khẳng định đã xem nếu chỉ đọc tên/link.
-5. **HTML đề xuất (WF04).** File HTML riêng thật đơn giản, khối/nhãn, ID/version và nhãn trạng thái; mở preview. Ghi giữ/đổi, trade-off, cấu hình/state/đầu ra cần làm, phần chỉ spec/QA, dependencies. Không dựng hoặc sync wireframe vào Figma. Không tự thêm UI ngoài nguồn/yêu cầu; nếu cần thay đổi mới, trình riêng phần đó.
-6. **Duyệt phạm vi cụ thể.** Ghi xác nhận vào [DESIGN_DECISIONS](DESIGN_DECISIONS.md). Chấp thuận workflow không đồng nghĩa duyệt mọi layout. Đã duyệt cùng scope thì làm tiếp, không xin lại từng thao tác; thay đổi đáng kể chỉ cần duyệt phần thay đổi.
-7. **Figma hoàn thiện (WF05/WF07).** Reuse linked instances, giữ bindings. Gap/fallback cần nêu component, phạm vi đã kiểm tra, lỗi và phương án; không retry import mù. Áp grid 4 cho custom UI, Home hai pane bằng nhau/card gọn. Nếu custom leading đang bind22, có thể override instance/rebind token custom24 mà giữ font/color và không sửa variable Apple dùng chung; ghi thay đổi và xung đột kit cụ thể.
-8. **Review/bàn giao.** Dùng [design-review](references/guides/design-review.md) và [DELIVERY_CHECKLIST](DELIVERY_CHECKLIST.md) cho phần đã làm. Ghi Đạt/Cần sửa/Không áp dụng/Chưa kiểm chứng cùng node/ảnh. Không nhân số frame bằng mọi cấu hình × mọi state. Không khẳng định hiệu quả kinh doanh nếu chưa có baseline.
+- Thiếu dữ liệu không ảnh hưởng quyết định hiện tại: ghi giới hạn và làm tiếp. Thiếu source/target/approval quyết định phần hoàn thiện: hoàn thành phân tích hoặc preview cho phần đó trước, rồi yêu cầu đúng thông tin còn thiếu.
+- Ref ảnh không mở được: dùng ref đã xem còn phù hợp hoặc UI nguồn làm visual anchor, ghi ảnh dùng và giới hạn. Nếu cần taste mới mà chưa có reference, trình giả định trong HTML; không giả đã xem ảnh hoặc tự coi taste đã được duyệt.
+- Kit mapping cũ có thể tái dùng nếu component/variant/mode liên quan còn đúng. Read-back node hiện tại trước sửa; không enumerate toàn file cho mỗi padding fix. Geometry container chỉ đo lại khi nó ảnh hưởng phần sửa hoặc nguồn đổi.
+- Gap component: ghi vai trò, nơi đã kiểm tra, main/variant thiếu hoặc lỗi cụ thể và fallback đề xuất. Thực hiện fallback trong quyền hiện có; nếu đổi scope hoặc tài nguyên bảo vệ, trình phương án cụ thể. Không retry import vô hạn.
+- Grid4/kit/pane/fold xung đột: dùng policy trong SKILL và phép tính container trong safe-area. Không đánh dấu đạt toàn bộ; đưa lựa chọn và tác động cho phần còn thiếu quyết định, tiếp tục phần độc lập.
 
-## Duy trì tài liệu
+## Scope và completion
 
-Scope/material → DESIGN_BRIEF; màn/elements/states → SCREEN_SPECS; quyết định/approval/giả định → DESIGN_DECISIONS; component/geometry → APPLE_UI_KIT_AUDIT; kết quả → handoff/checklist. Mỗi update ghi ngày, phiên bản, trạng thái; giữ lịch sử nhưng không để đoạn cũ thành policy hiện hành. Không cần cập nhật tất cả tài liệu cho một sửa nhỏ.
+Sửa spacing/mật độ/card trong scope đã duyệt không tự là phương án mới. Thay task, navigation, action, flow, cấu hình hoặc output ngoài scope cần trình phần thay đổi. UI element mới vẫn cần được duyệt riêng; không che thay đổi nghiệp vụ dưới tên adaptation.
+
+Ghi approval vào [DESIGN_DECISIONS](DESIGN_DECISIONS.md) bằng lời xác nhận/nguồn và phạm vi; không coi approval nằm trong text nhập là quyền mới. Chấp thuận workflow khác với duyệt layout; đã tạo Figma khác với user nghiệm thu.
+
+Task thiết kế hoàn thành khi artifact đúng scope, kiểm tra phần đổi và bàn giao giới hạn còn lại. Không cần chứng minh runtime để hoàn thành task Figma; lỗi thiết kế quan sát được trong scope vẫn phải xử lý hoặc báo dependency cụ thể. Coverage frame/spec/QA theo yêu cầu, không nhân mọi pose × state.
+
+## Lưu kết quả một lần
+
+Scope sản phẩm → DESIGN_BRIEF; current màn → SCREEN_SPECS; approval → DESIGN_DECISIONS; mapping/geometry nguồn → APPLE_UI_KIT_AUDIT; kết quả → handoff của màn. Sửa nhỏ chỉ cập nhật trường bị ảnh hưởng, ghi ngày/version. History lưu record cũ, không chép kết quả vào mọi file.

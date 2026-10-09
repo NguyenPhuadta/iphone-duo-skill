@@ -1,3 +1,3 @@
-# SmartHue Duo — hướng dẫn trong gói
+# Hướng dẫn gói SmartHue Duo
 
-Khi làm việc SmartHue Duo, bắt đầu từ [SKILL.md](SKILL.md), chọn mode và tài liệu liên quan. Không đọc mọi guide mỗi lượt. Đây là quy tắc của gói này; khi chuyển sang workspace khác, giữ quy tắc workspace hiện có, không ghi đè AGENTS của người dùng.
+Task SmartHue Duo bắt đầu ở [SKILL.md](SKILL.md), chọn mode và đọc đúng tài liệu. Current màn ở SCREEN_SPECS; `history/` chỉ tra khi cần nguồn cũ. Giữ quy tắc workspace hiện có khi dùng gói ở nơi khác.

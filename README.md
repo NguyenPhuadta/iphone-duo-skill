@@ -1,13 +1,9 @@
-# SmartHue Duo — skill v1.9
+# SmartHue Duo — skill v2.0
 
-Ngày 2026-10-08. Điểm vào duy nhất: [SKILL.md](SKILL.md). Giải nén và gửi toàn bộ folder cho agent; yêu cầu agent bắt đầu ở SKILL.md và chọn tài liệu theo đầu việc. Gói chưa được cài tự động vào máy hoặc chỉnh Figma.
+2026-10-10. Điểm vào: [SKILL.md](SKILL.md). Gửi cả folder để agent có guides và project context; không chỉ gửi SKILL.md.
 
-Bản này thêm năm guide chọn lọc, tích hợp safe-area v2, gom workflow/approval/WF05/WF07, và phân hồ sơ lịch sử khỏi quy tắc hiện hành. Các chi tiết spec/decision/audit gốc được giữ với ghi chú trạng thái. [PACKAGE_REVIEW](PACKAGE_REVIEW.md) giải thích các sửa đổi.
+v2.0 tối ưu routing/workflow, phân biệt current và history, giảm record trùng, làm rõ custom grid4/kit, content bounds của Home và kiểm tra kết quả thiết kế. Không sửa Figma hoặc tự cài skill. [PACKAGE_REVIEW](PACKAGE_REVIEW.md) ghi thay đổi/validation.
 
-Gói chỉ chứa tài liệu hướng dẫn và license, không chứa HTML/PNG/JSON demo, .fig, code app, font hay quyền Figma. ZIP nguồn thiếu 25 asset mà manifest cũ kê; xem [MISSING_ASSETS](MISSING_ASSETS.md). Manifest v1.9 chỉ kê file thực sự đóng gói, không tự kê chính nó.
+Gói chứa tài liệu/license; thiếu 25 assets gốc theo [MISSING_ASSETS](MISSING_ASSETS.md). Manifest kê file thực có, không kê chính nó. `history/` giữ records để truy nguồn, không thuộc đường đọc task mặc định. v1.9 được giữ riêng để đối chiếu.
 
-## Lời giao việc
-
-> Đọc SKILL.md của gói SmartHue Duo, xác định yêu cầu của tôi thuộc loại nào rồi mở guide tương ứng. Tái dùng approval/context còn hiệu lực. Báo đúng phần đã xem và chưa kiểm chứng; giữ scope và UI nguồn. Chỉ dựng proposal mới khi yêu cầu cần phương án mới.
-
-ZIP v1.8 gốc vẫn được giữ riêng để đối chiếu; v1.9 không ghi đè hoặc tự đồng bộ trở lại archive đó.
+> Đọc SKILL.md, chọn task mode và đúng guide. Tái dùng approval còn hiệu lực, làm trong scope; kiểm tra phần đổi và báo đúng bằng chứng/giới hạn.

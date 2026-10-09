@@ -1,4 +1,4 @@
-> Tích hợp v1.9: đọc khi cần geometry/safe area/fold. Đây là guide v2 theo các Figma reference đã được ghi nhận; không đo lại Figma trong lần đóng gói này. Quy trình và scope theo SKILL.md/WORKFLOW.md của gói.
+> Biên tập v2.0: đọc khi cần geometry/safe area/fold. Đây là guide v2 theo các Figma reference đã được ghi nhận; không đo lại Figma trong lần đóng gói này. Quy trình và scope theo SKILL.md/WORKFLOW.md của gói.
 
 # iPhone Duo — Safe Area & Fold Layout Guide
 
@@ -51,17 +51,31 @@ Với các template thanh dọc, span ngang sau safe area và margin leading là
 
 **Không suy ra safe area hoặc chiều rộng vùng gập từ kích thước frame Figma.** Trục giữa frame chỉ là một đường kiểm tra hình học. Vùng gập thực tế phụ thuộc trạng thái thiết bị và cần xác nhận từ hệ thống.
 
-## 2. Rule bắt buộc cho layout
+## 2. Nguyên tắc và cách áp dụng layout
 
 1. Bố trí theo không gian thực sự có sẵn và size classes. Tránh phụ thuộc vào tên thiết bị, hướng màn hình hoặc một kích thước frame cố định.
 2. Khi máy mở phẳng, không tự tạo một vùng cấm cố định ở giữa chỉ vì màn hình có nếp gập.
-3. Khi gập một phần, xác định các vùng sử dụng được sau khi xét safe area và reserved regions. Giữ thẻ, chữ quan trọng, toggle, slider và vùng chạm trọn trong một vùng sử dụng được.
-4. Không để một thẻ hoặc cụm điều khiển quan trọng bắc ngang vùng gập bị loại trừ. Background trang trí có thể phủ rộng nếu không che nội dung và không làm điều khiển khó dùng.
+3. Với grid/card điều khiển SmartHue khi gập một phần, xác định các vùng sử dụng được sau khi xét safe area và reserved regions. Giữ thẻ, chữ quan trọng, toggle, slider và vùng chạm trọn trong một vùng sử dụng được.
+4. Trong grid/card điều khiển SmartHue, không để một thẻ hoặc cụm điều khiển quan trọng bắc ngang vùng gập bị loại trừ. Background trang trí có thể phủ rộng nếu không che nội dung và không làm điều khiển khó dùng.
 5. Ưu tiên layout/container hệ thống có khả năng thích ứng với reserved regions. Với layout custom, dùng bounds do runtime cung cấp để bố trí lại nội dung.
 6. Grid cần thích ứng theo từng vùng sử dụng được. Có thể dùng số cột chẵn để phân chia thuận lợi; nếu một vùng không đủ rộng, giảm số cột, xếp dọc hoặc cho cuộn thay vì ép thẻ nhỏ và khó thao tác.
-7. Giữ navigation bên ngoài container sắp xếp nội dung. Giữ thứ tự chức năng và vị trí tương đối của các điều khiển ổn định khi đổi tư thế.
+7. Với Home, giữ navigation riêng với vùng content cards; container hệ thống có thể quản lý chrome theo framework. Giữ thứ tự chức năng và vị trí tương đối của các điều khiển ổn định khi đổi tư thế.
 8. Giữ cùng chức năng và trạng thái giữa màn hình ngoài, màn hình trong và các tư thế: phòng đang chọn, trạng thái bật/tắt, độ sáng và vị trí đang xem phải được bảo toàn khi thích hợp.
 9. Bố trí theo toàn bộ vùng khả dụng; tránh trừ safe area hoặc reserved region hai lần nếu container hệ thống đã xử lý chúng.
+
+
+## Home content bounds
+
+**Policy user:** Home inner landscape hai pane bằng rộng, custom grid4 và card không kéo giãn theo chiều cao pane. Các rule này khác với geometry snapshot của kit. Snapshot v3 và trạng thái nghiệm thu chỉ lưu ở [Home handoff](../../HOME_DEMO_HANDOFF.md).
+
+1. Ghi screen/container bounds và pose; loại safe area/active reserved regions đúng một lần. Span inner flat 20→867 là reference, chưa là content container cuối.
+2. Khai báo product padding ngoài hai pane và gutter trong scope đã duyệt. Nếu template đã gồm margin/padding, không trừ lại. Đặt `C` là content width sau các khoản này, `G` là gutter; flat hai pane có `P_left = P_right = (C - G) / 2`.
+3. Kiểm tra pane/card/tokens custom theo grid4. Nếu kết quả chia không hợp grid, điều chỉnh product padding/gutter trong quyền hiện có; ghi phần dư và bounds kết quả. Không làm tròn width native screen/kit hoặc tự thêm khoảng chừa không có lý do.
+4. Card cao theo nội dung/control/spacing; không bind height theo full pane để lấp màn. Không cố giữ dimensions v3 khi chữ/content thay đổi.
+5. Partial fold dùng bounds active thực tế; tâm usable content không mặc định là tâm hinge. Kiểm tra từng pane/card và hit region với vùng dùng được. Chưa có bounds: ghi partial chưa kiểm chứng, tiếp tục flat; proposal partial chỉ dùng giả định được ghi nhãn. Không tạo một band hardware giả.
+6. Nếu equal panes/grid4/linked kit không thể cùng thỏa trong các regions, ghi constraint, đề xuất cụ thể kèm trade-off: padding/width/reflow còn trong scope hoặc thay presentation của cấu hình đó. Phần đổi ngoài scope cần duyệt riêng; không tự bỏ rule user hoặc chặn việc flat độc lập.
+
+**Phân biệt scrolling:** bài/list/document cuộn liên tục không mặc định cần displacement thành hai pane. Grid điều khiển tương tác có thể reflow/đổi spacing để giữ card trong vùng dùng được. Scroll không tự chứng minh control qua hinge vẫn dễ dùng. Quyết định theo loại nội dung, bằng chứng và scope.
 
 ## 3. Camera và thanh điều khiển dọc
 
@@ -100,7 +114,7 @@ Các số dưới đây đọc từ bốn component `iPhone Duo/Sheets` trong re
 └────────────────────┴────────────────┴────────────────────┘
 ```
 
-Sơ đồ minh họa, không theo tỷ lệ. Với pattern tổng quát, hai vùng nội dung không nhất thiết bằng nhau. Riêng SmartHue Home inner landscape, WF07 yêu cầu hai panel bằng chiều rộng trong usable area; nếu vùng gập thực tế gây xung đột, ghi rõ và trình phương án thay vì tự bỏ rule Home. Không dùng `screenWidth / 2` làm ràng buộc cố định cho mép panel hoặc chiều rộng vùng gập.
+Sơ đồ minh họa, không theo tỷ lệ. Với pattern tổng quát, hai vùng nội dung không nhất thiết bằng nhau. Riêng SmartHue Home inner landscape, feedback RV02 yêu cầu hai panel bằng rộng; dùng mục Home content bounds cho flat/partial và cách trình xung đột. Không dùng `screenWidth / 2` làm ràng buộc cố định cho mép panel hoặc chiều rộng vùng gập.
 
 Quy trình bố trí ở mức khái niệm:
 
@@ -160,9 +174,9 @@ Mockup dùng để kiểm tra bố cục. Hành vi thích ứng, vùng chạm, a
 
 - Figma reference **Safe Area Insets and Margins**: https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue---HuyHL-PhuNH?node-id=24731-15441
 - SmartHue Home được review: https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue---HuyHL-PhuNH?node-id=24805-6013
-- Apple Design Skill trong archive tham khảo ban đầu: `apple-design-skill-main/SKILL.md` (không bundle trong v1.9).
-- Đường dẫn trong archive Apple Design Skill gốc, không phải dependency local của v1.9: `references/hig/designing-for-iphone-duo.md` → **Dynamic layouts**, **Reserved regions**, **Vertical controls**.
-- Đường dẫn trong archive Apple Design Skill gốc, không phải dependency local của v1.9: `references/hig/layout.md` → **Adaptability**, **Size classes**, **Guides and safe areas**.
+- Apple Design Skill trong archive tham khảo ban đầu: `apple-design-skill-main/SKILL.md` (không bundle trong gói).
+- Đường dẫn trong archive Apple Design Skill gốc, không phải dependency local của gói: `references/hig/designing-for-iphone-duo.md` → **Dynamic layouts**, **Reserved regions**, **Vertical controls**.
+- Đường dẫn trong archive Apple Design Skill gốc, không phải dependency local của gói: `references/hig/layout.md` → **Adaptability**, **Size classes**, **Guides and safe areas**.
 - Trang Apple được tài liệu dẫn nguồn: https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo
 
 Các hướng dẫn chia grid, fallback một cột và quy trình kiểm tra ở đây là cách vận dụng guideline vào SmartHue. Chúng không quy định thông số phần cứng hay bảo đảm implementation đã đạt yêu cầu.

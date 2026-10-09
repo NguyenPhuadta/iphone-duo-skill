@@ -1,3 +1,7 @@
+> ARCHIVE v1.9 — chỉ tra cứu nguồn/quyết định quá khứ. Các lệnh thao tác và trạng thái bên dưới không điều khiển task hiện tại. Quy trình hiện hành ở [SKILL](../SKILL.md); trạng thái màn ở [SCREEN_SPECS](../SCREEN_SPECS.md).
+
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](../SKILL.md) và [WORKFLOW.md](../WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](../PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](../MISSING_ASSETS.md).
+
 # SmartHue — Quy tắc thiết kế theo Apple HIG
 
 > Kiểm tra nguồn ngày 2026-10-06. Áp dụng cho việc thiết kế/review Home, điều khiển từng đèn, OB và kết nối thiết bị trên iPhone Duo.
@@ -51,11 +55,20 @@ Một số nguồn HIG cần JavaScript khi mở trực tiếp; nội dung trên
 
 ## C. Review và bàn giao
 
-1. Chọn rule IDs ảnh hưởng quyết định; dẫn rule vào finding/spec liên quan. Không ghi bảng trạng thái mọi rule cho sửa nhỏ.
+1. Với mỗi flow, map rule IDs liên quan vào SCREEN_SPECS.md; ghi rõ trường hợp không áp dụng.
 2. Review layout, nội dung và states trên frame nguồn và cấu hình Duo liên quan trong IPHONE_DUO_RESEARCH.md; không chỉ review happy path.
 3. Tách **đã kiểm tra bằng thiết kế/prototype** và **cần kiểm tra bằng app/simulator**. Không ghi VoiceOver, Dynamic Type hoặc lệnh đèn đã hoạt động chỉ từ một screenshot.
 4. Lưu vấn đề với vị trí bằng chứng, mức ảnh hưởng, hướng sửa và trạng thái; exception có lý do trong DESIGN_DECISIONS.md.
 5. Xác minh lại nguồn khi SDK/HIG/kit đổi, có mâu thuẫn hoặc trước bàn giao triển khai. Không yêu cầu research lại mọi nguồn cho từng thay đổi nhỏ.
 
+### Trade-off và cách kiểm chứng
 
-Nguồn được ghi kiểm tra 2026-10-06; v2.0 không xác minh lại toàn bộ HIG. Policy user và workflow ở SKILL/WORKFLOW; HIG/SH là tài liệu tra cứu theo màn, không là lệnh đọc mọi rule. Lịch sử: [archive](history/HIG_RULES.md).
+- **Tech:** component chuẩn giảm công tự xử lý; UI đèn custom giữ tự do nhưng tăng công accessibility, resize và state management.
+- **Business:** review core trước hạn chế phạm vi và giảm khả năng làm lại; QA nhiều cấu hình vẫn tốn nguồn lực. Chưa có số liệu để kết luận tăng retention/conversion.
+- **Product / UX:** bố cục nhất quán giúp người dùng học lại ít hơn; giữ mọi khả năng trong vùng hẹp đòi hỏi overflow/progressive disclosure, có thể giảm khả năng khám phá actions phụ.
+- **Điều kiện:** có UI/luồng nguồn và hành vi thiết bị được xác nhận trước chốt spec; không dự báo hiệu quả từ mức độ tuân thủ HIG đơn thuần.
+- **Metric đề xuất:** completion/time/error của tác vụ core, drop-off theo bước OB/kết nối, tỷ lệ điều khiển/kết nối thành công và lỗi mất trạng thái khi resize. Chưa có baseline, mẫu số hoặc target; cần tracking thực tế trước đánh giá tác động.
+
+## Lịch sử
+
+- **2026-10-06:** tạo bộ rule có nguồn, tiêu chí kiểm tra và phần áp dụng SmartHue; chưa review UI SmartHue hoặc chốt giải pháp layout.

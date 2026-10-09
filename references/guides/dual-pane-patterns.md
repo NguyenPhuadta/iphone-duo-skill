@@ -4,7 +4,7 @@ Mở khi cần quyết định nội dung hai vùng, không mở chỉ vì màn 
 
 | Quan hệ nội dung hiện có | Pattern phù hợp | Điều cần giữ |
 | --- | --- | --- |
-| Nhiều phòng/nhóm → đèn thuộc lựa chọn | List-detail | Selection và phạm vi tác động; Home tuân rule hai vùng bằng rộng |
+| Nhiều phòng/nhóm → đèn thuộc lựa chọn | List-detail | Selection và phạm vi tác động; Home theo content bounds và scope cấu hình đã duyệt |
 | Một đối tượng + công cụ chỉnh nó | Companion | Công cụ gần đối tượng, cùng giá trị/trạng thái |
 | Hai phiên bản đã có cần so | Dual view | Không tự phát minh tính năng compare |
 | Nội dung hình ảnh liên tục | Extended canvas | Controls/nhãn quan trọng tránh vùng che; không ép card đèn thành canvas |
@@ -14,9 +14,9 @@ Chọn bằng quan hệ nội dung và vùng có sẵn; không chọn bằng gó
 
 ## Áp dụng SmartHue
 
-- Home inner landscape: hai vùng phòng/nhóm và đèn bằng nhau trong usable content sau rail/margins. Ví dụ upstream list300–320/detail rộng hơn không ghi đè rule này.
+- Home inner landscape: hai vùng phòng/nhóm và đèn bằng nhau trong content bounds đã khai báo; xem [cách tính và partial fold](iphone-duo-safe-area-guide.md#home-content-bounds). Ví dụ upstream list300–320/detail rộng hơn không ghi đè rule này.
 - Không stretch card/font/control chỉ để lấp màn. Giảm cột khi chật; không cố giữ tỷ lệ số học làm card rơi vào fold.
-- Khoảng pane16/24, band27, max text600 và số cột upstream là gợi ý community, không token Apple bắt buộc. Token custom phải theo WF07 và tình huống hiện tại.
+- Khoảng pane16/24, band27, max text600 và số cột upstream là gợi ý community, không token Apple bắt buộc. Token custom theo policy grid4 trong SKILL và tình huống hiện tại.
 - Nếu chưa rõ quan hệ hai pane, giữ hierarchy nguồn và đưa lựa chọn trong proposal HTML; không tự duyệt redesign.
 - Không nhập các ý tưởng hinge reveal, close-to-save, paywall hai pane, xin notification sau paywall hoặc chuyển controls đèn theo góc gập. Chúng không thuộc scope SmartHue hiện tại.
 

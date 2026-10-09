@@ -1,41 +1,42 @@
-# Review tích hợp v1.9 — 2026-10-08
+# Tối ưu skill v2.0 — 2026-10-10
 
-Đây là review cấu trúc/nội dung của skill, không phải review lại Figma hay xác nhận runtime. Chỉ mở khi bảo trì skill.
+## Thay đổi
 
-## Những điểm đã xử lý
-
-| Vấn đề | Cách xử lý |
+| Vấn đề v1.9 | Xử lý v2.0 |
 | --- | --- |
-| Chưa có SKILL.md; nhiều điểm bắt đầu yêu cầu đọc tất cả | Thêm name/description hẹp cho SmartHue; SKILL là điểm vào, AGENTS là alias; route theo loại việc |
-| Năm skill ngoài có trigger rộng và dẫn sibling không kèm | Biên tập thành năm reference không có trigger riêng; bỏ vòng route sang camera/games/hinge/framework |
-| Geometry rải nhiều nơi | Safe-area v2 là nguồn snapshot cho phép đo; guide khác chỉ liên kết, không sao bảng token |
-| HIG, kit và runtime bị hiểu cùng loại nguồn | Ghi provenance và phạm vi; số Figma không là SDK constants, API phải xác minh khi code |
-| Review/sửa nhỏ bị kéo qua proposal và SDK checklist | Tách review, fix trong scope, proposal mới, readiness; giữ approval đã có |
-| Trạng thái v1/v2/v3 chồng nhau | Context tóm tắt mới; records gốc có banner lịch sử, đọc mốc liên quan |
-| Home pane bằng nhau xung đột ví dụ upstream | Giữ rule Home; không nhập list300–320 hay band27 thành chuẩn |
-| Scroll exemption/camera active quá rộng | Control quan trọng vẫn cần chạm được; phân biệt outer/inner camera theo mô hình nguồn |
-| Grid4 xung đột intrinsic | Giữ WF05/WF07, ghi xung đột; không tự tuyên bố ngoại lệ được user duyệt |
-| Manifest/link hứa asset không có | Liệt kê 25 thiếu, vô hiệu link local thiếu trong records, manifest mới theo file thật |
-| Ý tưởng mới ngoài scope | Không nhập paywall/hinge reveal/close-to-save/notification flow |
+| Entry point chọn lọc nhưng file đích còn yêu cầu đọc rộng | Active brief/audit không còn lệnh đọc toàn bộ; hồ sơ cũ chuyển history và route riêng |
+| Home v1/v2/v3 chen nhau | SCREEN_SPECS có current state v3, approval và nghiệm thu tách riêng; handoff giữ kết quả một lần |
+| Custom grid4 và native kit nhập nhằng | Phân loại custom/native; override chỉ trong quyền hiện có, giữ link/bindings không liên quan; phần xung đột báo chưa đạt, không tự nghiệm thu ngoại lệ cũ |
+| Equal pane thiếu content bounds | Guide safe-area khai báo content width/gutter/product padding, flat khác partial; không tự lấp phần dư hoặc dùng band giả |
+| Workflow nhiều thủ tục | Năm chặng có evidence chuyển bước; review/fix bỏ chặng proposal; kiểm tra đúng components bị ảnh hưởng |
+| Thiếu ref/source gây kẹt | Tiếp tục phần độc lập, ref nguồn UI hoặc ảnh phù hợp còn hiệu lực; ghi giới hạn, không giả đã xem |
+| Test gate rộng | Read-back/render/bounds thuộc kiểm tra thiết kế; QA runtime theo scope được giao |
+| Record nhân bản | Current/spec, approval, mapping và kết quả có nơi lưu riêng; các file khác liên kết |
 
-## Review định tuyến bằng tình huống
+WF04/WF05, thứ tự kit → HIG → ref, quyền user và feedback Home vẫn giữ. Geometry tables và upstream license không thay đổi. v1.9 gốc và ZIP được giữ riêng; history chứa hồ sơ trước tối ưu, điều chỉnh đường dẫn và gắn nhãn archive.
 
-Đây là đối chiếu thủ công hướng dẫn, không phải kết quả chạy agent end-to-end.
+## Đối chiếu đường đi theo tình huống
 
-| Yêu cầu ví dụ | Đường đọc cần thiết | Điều tránh được |
-| --- | --- | --- |
-| Review Home screenshot | SKILL → design-review + spec Home; thêm safe-area khi đo | Không tự dựng HTML/đổi Figma |
-| Card chạm nếp gập | SKILL → safe-area + adaptive; audit đúng template | Không lấy tâm flat làm defect hoặc hardcode band27 |
-| Toolbar label bị chật | SKILL → vertical-bars; safe-area nếu đổi inset | Không đọc readiness/dual-pane vô cớ |
-| Đề xuất layout đèn mới | SKILL → WORKFLOW + scope/spec → kit → HIG → ảnh ref; guide pane nếu cần | Không bỏ HTML/approval, không thêm action |
-| Sửa padding24 trong Home đã duyệt | SKILL → decision/spec + rule4 | Không xin duyệt lại hoặc đọc mọi ref |
-| Kiểm tra code resize | SKILL → readiness → source/SDK thực tế; adaptive khi liên quan | Không coi Figma là runtime evidence |
-| Chỉ bàn giao thiết kế cho dev | SKILL → checklist + readiness phần contract | Không cài SDK/chạy test tự động |
+Đây là kiểm tra thủ công nội dung hướng dẫn, không chạy agent end-to-end.
 
-## Giới hạn còn lại
+| Task | Đường đọc / điều kiện hoàn thành |
+| --- | --- |
+| Review ảnh Home | SKILL → design-review + current Home nếu cần → findings; không làm HTML/Figma |
+| Sửa padding trong Home đã duyệt | Spec/quyền hiện có → node/property liên quan → sửa → read-back/render; không audit toàn file hoặc xin duyệt lại |
+| Phương án màn mới | WORKFLOW → source → local kit → HIG → ảnh ref → HTML preview → duyệt scope → Figma → evidence |
+| Card qua hinge | Safe-area/adaptive; flat chỉ là rủi ro partial; partial dùng bounds hoặc giả định được ghi nhãn |
+| Toolbar thiếu chỗ | Bars + scope actions; safe-area khi geometry đổi; không mở readiness chỉ vì iPhone |
+| Handoff dev | Checklist + readiness contract; không cài SDK hoặc claim runtime từ Figma |
+| Kit leading22/grid4 | Custom property được phép có thể override; native không sửa library; xung đột không giải được báo số và phương án cho phần đó |
 
-Asset v1.8 thiếu chưa thể phục hồi. Nguồn Figma và link upstream không được tải lại trong lượt tích hợp; API/SDK không được compile. Guide v2 giữ provenance từ lần đối chiếu trước, không nâng thành đo lại hôm nay. Hồ sơ dài vẫn được giữ vì chứa quyết định/source IDs; agent tìm theo màn/rule/ngày và chỉ đọc đoạn liên quan.
+## Kiểm tra gói
 
-## Kiểm tra đóng gói
+- Frontmatter hai scalar fields name/description, tên/độ dài và một entrypoint được kiểm tra trực tiếp.
+- Link Markdown local và anchor được rà cả active/history; không có đích thiếu sau tối ưu.
+- Bảng geometry safe-area được đối chiếu nguyên văn với v1.9; license đối chiếu byte. Manifest/ZIP được kiểm tra hash và nội dung khi đóng gói.
+- quick_validate.py không chạy được vì cả Python hệ thống và runtime bundled thiếu PyYAML. Kiểm tra trực tiếp ở trên không được gọi là đã chạy validator chuẩn.
+- Không có hành vi agent, app hoặc geometry Figma được tái kiểm chứng từ việc kiểm tra package.
 
-Đã rà 7 tình huống định tuyến ở bảng trên; kiểm tra toàn bộ link Markdown local trỏ tới file tồn tại, chỉ một SKILL.md có frontmatter, và cấu trúc name/description đúng định dạng. Validator quick_validate.py của skill-creator không chạy được do Python hiện có thiếu PyYAML; kiểm tra cấu trúc tương đương cho frontmatter hai trường được thực hiện trực tiếp, không cài thêm dependency. Manifest và nội dung ZIP được đối chiếu byte/hash sau đóng gói. Chưa chạy agent end-to-end, app hoặc QA runtime.
+## Đo tuân thủ khi dùng tiếp
+
+Thu task/scope/skill version, log hành động và artifact. Chấm đúng mode/source, discovery trước fallback, HTML/approval khi áp dụng, preservation linked instances và read-back sau sửa. Ghi hỏi approval lặp, đọc tài liệu thừa, thêm feature ngoài scope và claim thiếu evidence. Chỉ tính tiêu chí áp dụng; báo riêng lỗi nghiêm trọng. So thời gian tới artifact và vòng sửa trên task tương đương; chưa có baseline để claim v2.0 nhanh hơn hay agent tuân thủ tốt hơn.

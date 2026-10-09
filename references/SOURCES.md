@@ -2,7 +2,7 @@
 
 Năm guide design-review, adaptive-layout, vertical-bars, dual-pane-patterns và readiness được biên tập/rút gọn từ archive `iphone-duo-skills-main.zip`, package v1.5.0, tác giả Navid Mirzaaghazadeh. Giữ [MIT license và attribution](UPSTREAM_LICENSE.txt). Đây là tài liệu bên thứ ba, không phải chứng nhận của Apple; việc tích hợp không xác minh lại mọi claim SDK/hardware của upstream.
 
-Guide safe-area v2 lấy từ file người dùng đang dùng trong workspace; giữ nội dung bảng/geometry và nguồn Figma ở trong guide. Không gọi giá trị snapshot là runtime constants. Gói v1.9 không kèm SDK, source app hay kết quả chạy simulator.
+Guide safe-area v2 lấy từ file người dùng đang dùng trong workspace; giữ nội dung bảng/geometry và nguồn Figma ở trong guide. Không gọi giá trị snapshot là runtime constants. Gói này không kèm SDK, source app hay kết quả chạy simulator.
 
 ## Đầu mối nguồn upstream (cần xác minh khi dùng để triển khai)
 

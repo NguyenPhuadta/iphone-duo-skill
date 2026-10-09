@@ -1,3 +1,7 @@
+> ARCHIVE v1.9 — chỉ tra cứu nguồn/quyết định quá khứ. Các lệnh thao tác và trạng thái bên dưới không điều khiển task hiện tại. Quy trình hiện hành ở [SKILL](../SKILL.md); trạng thái màn ở [SCREEN_SPECS](../SCREEN_SPECS.md).
+
+> Hồ sơ kế thừa v1.8: đọc đúng phần/mốc cần thiết, không đọc toàn bộ mỗi lượt. Quy trình hiện hành ở [SKILL.md](../SKILL.md) và [WORKFLOW.md](../WORKFLOW.md); trạng thái tổng hợp ở [PROJECT_CONTEXT.md](../PROJECT_CONTEXT.md). Các mục cũ là lịch sử; claim về asset/bằng chứng không có file cần đối chiếu [MISSING_ASSETS.md](../MISSING_ASSETS.md).
+
 # SmartHue — Nguồn ref hình ảnh app trên iPhone Duo
 
 > Research ngày 2026-10-06. Đây là danh mục nguồn và hướng dùng, chưa phải thư viện ảnh đã tải hoặc moodboard được duyệt. Mục tiêu: bổ sung ví dụ có nội dung thực để nghiên cứu bố cục, hierarchy và tương tác, cùng HIG và kit.
@@ -30,7 +34,17 @@ Trong các truy vấn về Home/Hue/Duo ở lượt này, chưa tìm được b�
 
 Thiếu ref là giả thuyết có thể ảnh hưởng chất lượng thị giác, chưa chứng minh là nguyên nhân chính của nhận xét “chưa đẹp”. Cần xem UI SmartHue/bản thiết kế bị đánh giá cùng lý do cụ thể để đối chiếu hierarchy, mật độ, spacing, màu và tác vụ.
 
+## Đề xuất tổ chức folder ảnh ref
 
-## Dùng ref theo task
+Nhóm theo pattern: `navigation`, `list-detail`, `controls-sheets`, `onboarding-connection`, `fold-resize`, `visual-direction`. Đây là cấu trúc đề xuất, chưa tạo thư viện ảnh trong lượt research này.
 
-Phương án mới xem ảnh sau kit/HIG. Tái dùng ảnh đã xác minh nếu còn phù hợp phiên bản/task; nếu không mở được nguồn, dùng ref khác hoặc UI nguồn và ghi giới hạn trong proposal theo WORKFLOW. Không ghi đã xem nếu chỉ đọc link. Đây là danh mục nguồn, không thư viện ảnh offline; taste mới chưa được duyệt chỉ là giả định. Lịch sử: [archive](history/DUO_APP_REFERENCES.md).
+Mỗi ảnh/video có ID, app, URL/tác giả, ngày, loại bằng chứng (ảnh quảng bá chính thức / thiết bị thật / simulator / concept), outer-inner/orientation/pose, state, timestamp nếu có, điểm học và điểm không phù hợp. Đánh dấu ảnh crop và giữ bản đủ context khi có. Tên ví dụ: `REF-01_slack_inner-landscape_selection.jpg`.
+
+Không gắn nhãn “thiết bị thật” chỉ vì ảnh có bezel. Ghép outer/inner của cùng tác vụ khi có; ưu tiên ref phù hợp màn đang sửa thay vì bắt đủ một số ảnh tùy ý.
+
+## Trade-off và kiểm chứng
+
+- **Tech:** ref giúp hiểu bố cục nhưng không thay behavior spec, runtime bounds hoặc capability của đèn. Hình quảng bá thường thiếu states/lỗi.
+- **Business:** tuyển chọn ref tốn thêm thời gian; khả năng giảm làm lại chưa có baseline. Theo dõi công tìm ref và vòng sửa do hiểu khác hướng thị giác, không suy ROI từ số ảnh.
+- **Product / UX:** ref sát pattern giúp trao đổi hierarchy/mật độ; copy app khác có thể làm sai tác vụ SmartHue. Chọn ref theo màn thật và kiểm tra task completion/error sau thiết kế.
+- **Điều kiện:** nguồn/loại bằng chứng rõ, ghi pattern học và phạm vi chuyển sang SmartHue; moodboard/style/layout cụ thể vẫn nằm trong đề xuất user duyệt.
