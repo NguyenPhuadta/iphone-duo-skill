@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SmartHue — Light Control · Proposal LC01 v1</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f4f6;color:#20232b;font:16px/1.5 system-ui,-apple-system,sans-serif}main{max-width:1160px;margin:auto;padding:32px 24px}h1{font-size:28px;line-height:1.25;margin:8px 0 12px}h2{font-size:20px;margin:0 0 8px}p{margin:0 0 16px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:1px;color:#687081}.intro{max-width:760px}.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0}button{font:inherit;cursor:pointer}.toolbar button{padding:8px 16px;border:1px solid #c7ccd6;border-radius:8px;background:white}.toolbar button[aria-pressed=true]{background:#20232b;color:white;border-color:#20232b}.toolbar label{margin-left:auto;font-size:14px}.sheet{background:white;border:1px solid #dbe0e8;border-radius:16px;padding:24px}.caption{font-size:14px;color:#677181}.canvas-wrap{overflow:auto;padding:16px 0}.screen{position:relative;background:#111318;color:#f4f5f7;border:1px solid #424651;overflow:hidden;margin:auto}.screen.inner{width:951px;height:669px}.screen.outer{width:466px;height:678px}.reserved{position:absolute;right:0;top:0;width:84px;height:100%;border-left:1px dashed #686b76;background:repeating-linear-gradient(135deg,#282b34,#282b34 8px,#22252d 8px,#22252d 16px);display:grid;place-items:center}.reserved span{writing-mode:vertical-rl;font-size:12px;letter-spacing:1px;color:#bfc5d1}.layout{position:absolute;left:20px;right:84px;top:24px;bottom:24px;display:grid;gap:24px;align-content:center}.inner .layout{grid-template-columns:400px 420px;padding-right:3px}.outer .layout{display:flex;flex-direction:column;gap:16px;padding-right:2px;justify-content:center}.scene{background:#2b303b;border:1px dashed #8892a5;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;flex-direction:column;gap:8px}.scene strong{font-size:20px}.scene span{font-size:14px;color:#b7bfcc}.inner .scene{height:432px}.outer .scene{height:176px;flex:none}.control-pane{display:flex;flex-direction:column;gap:16px}.card{padding:16px;border-radius:16px;background:#2b2e36}.card p{font-size:16px;text-align:center;margin:0 0 16px}.swatches{display:flex;justify-content:space-around;gap:16px}.swatch{width:64px;height:64px;flex:none;border-radius:50%;border:2px solid #dfe3eb;background:#dce9fd}.swatch:nth-child(2){background:#f163ea}.swatch:nth-child(3){background:#cd8534;border-color:transparent}.brightness{opacity:.5}.track{height:32px;position:relative}.track:before{content:'';position:absolute;left:0;right:0;top:12px;height:8px;background:#555964;border-radius:8px}.track:after{content:'';position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:#e4e5ea}.copy{text-align:center}.copy h3{font-size:28px;line-height:32px;margin:0 0 8px}.copy p{font-size:16px;line-height:24px;margin:0}.cta{background:#3a465b;border:1px solid #9eacc4;border-radius:16px;height:52px;width:100%;color:white;font-weight:600;display:grid;place-items:center}.outer .copy h3{font-size:24px;line-height:28px}.outer .copy p{font-size:16px;line-height:20px}.outer .card p{font-size:16px;line-height:20px}.guides-off .reserved{background:#1a1d24;border:0}.guides-off .reserved span{visibility:hidden}.notes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}.notes section{padding:20px;background:white;border:1px solid #dbe0e8;border-radius:12px}.notes ul{padding-left:20px;margin:0}.notes li{margin-bottom:8px}a{color:#345da7}small{font-size:13px}.hidden{display:none}@media(max-width:720px){main{padding:20px 16px}.sheet{padding:16px}.notes{grid-template-columns:1fr}.toolbar label{margin-left:0}}
+</style>
+<main>
+<div class="eyebrow">LC01 · v1 · ĐỀ XUẤT LAYOUT · 10/10/2026</div>
+<h1>Smart Light Control — iPhone Duo</h1>
+<p class="intro">Bản HTML khối/nhãn để duyệt bố cục. Giữ nội dung và hành động của màn nguồn; ảnh phòng được biểu diễn bằng placeholder. Đây chưa phải UI hoàn thiện.</p>
+<div class="toolbar" aria-label="Chọn bố cục đề xuất">
+<button type="button" data-view="inner" aria-pressed="true">Màn trong · Landscape</button>
+<button type="button" data-view="outer" aria-pressed="false">Màn ngoài · Portrait</button>
+<label><input id="guides" type="checkbox" checked> Hiện vùng chừa theo template</label>
+</div>
+<div class="sheet">
+<h2 id="view-title">Ảnh phòng + công cụ cạnh nhau</h2>
+<p class="caption" id="view-caption">Template 951 × 669. Companion layout: ảnh trái 400; controls phải 420; gutter 24. Hai pane bằng nhau là rule riêng của Home, không áp cho màn này.</p>
+<div class="canvas-wrap">
+<div class="screen inner" id="screen">
+<div class="reserved" aria-hidden="true"><span>VÙNG CHỪA TEMPLATE · 84</span></div>
+<div class="layout">
+<div class="scene"><strong>Ảnh phòng từ màn nguồn</strong><span>Giữ artwork gốc khi dựng Figma</span></div>
+<div class="control-pane">
+<div class="card"><p>Tap to choose Color</p><div class="swatches" aria-label="Ba màu hiện có, minh họa tĩnh"><div class="swatch"></div><div class="swatch"></div><div class="swatch"></div></div></div>
+<div class="card brightness"><p>Slide to control Brightness</p><div class="track" aria-label="Slider hiển thị mờ như nguồn"></div></div>
+<div class="copy"><h3>Smart Light Control</h3><p>Instantly control your lights with a single tap.</p></div>
+<div class="cta">Continue</div>
+</div>
+</div>
+</div>
+</div>
+<p class="caption">Swatch, slider và Continue là khối tĩnh để xem layout. Nút phía trên chỉ đổi preview, không mô phỏng hành vi đèn.</p>
+</div>
+<div class="notes">
+<section><h2>Giữ / đổi</h2><ul>
+<li><b>Giữ:</b> ảnh phòng, 3 lựa chọn màu, slider mờ, title, mô tả và Continue; không thêm navigation/action.</li>
+<li><b>Màn trong:</b> chuyển ảnh và controls sang cạnh nhau. Controls giữ thứ tự nguồn; Continue cùng pane với tác vụ.</li>
+<li><b>Màn ngoài:</b> xếp dọc ảnh → màu → độ sáng → title/mô tả → Continue. Thu chiều cao ảnh để giữ nhóm controls rõ ràng.</li>
+<li><b>Trade-off:</b> màn ngoài hiển thị ảnh nhỏ hơn nguồn; màn trong tách ảnh khỏi controls để tránh kéo giãn các phần tử.</li>
+</ul></section>
+<section><h2>Scope duyệt & giới hạn</h2><ul>
+<li>Duyệt LC01 v1 cho <b>inner landscape mở phẳng + outer portrait</b>. Partial fold và các tư thế khác chưa được đề xuất ở bản này.</li>
+<li>Dải 84 là snapshot từ template trong file, không phải hằng số runtime. Không thêm vùng cấm giả ở đường tâm khi mở phẳng.</li>
+<li>Nhãn “Tap to control Light” bị che trong nguồn; chưa đưa vào preview. Slider mờ chưa đủ bằng chứng kết luận disabled hay điều kiện bật.</li>
+<li>Dựng Figma sau duyệt sẽ reuse linked Button main <code>5:108582</code>; HTML này chưa chứng minh linkage, safe area runtime hay interaction.</li>
+</ul></section>
+</div>
+<p style="margin-top:24px"><small>Nguồn: <a href="https://www.figma.com/design/mklhEcafiTfj9FoGIUhA0M/SmartHue---HuyHL-PhuNH?node-id=19508-17069">1_changecolor · 19508:17069</a> · Geometry: template local 24731:15442 / 24731:15493 và safe-area guide v2.0. Nguyên tắc nhóm nội dung/adaptation: bản lưu <a href="https://developer.apple.com/design/human-interface-guidelines/layout">Apple HIG Layout</a> trong Apple Design Skill; trang live chỉ trả thông báo JavaScript ở lần đọc này.</small></p>
+</main>
+<script>
+const screen=document.getElementById('screen');
+const wrap=document.querySelector('.canvas-wrap');
+function fit(){screen.style.zoom=Math.min(1,wrap.clientWidth/(screen.classList.contains('inner')?951:466));}
+new ResizeObserver(fit).observe(wrap);fit();
+document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{
+ const inner=button.dataset.view==='inner'; screen.classList.toggle('inner',inner);screen.classList.toggle('outer',!inner);
+ fit();
+ document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+ document.getElementById('view-title').textContent=inner?'Ảnh phòng + công cụ cạnh nhau':'Giữ thứ tự nguồn, xếp dọc';
+ document.getElementById('view-caption').textContent=inner?'Template 951 × 669. Companion layout: ảnh trái 400; controls phải 420; gutter 24. Hai pane bằng nhau là rule riêng của Home, không áp cho màn này.':'Template 466 × 678. Content x=20→380, rộng 360; dải bên phải từ x=382. 2 đơn vị dư là padding sản phẩm cho custom grid4.';
+}));
+document.getElementById('guides').addEventListener('change',e=>screen.classList.toggle('guides-off',!e.target.checked));
+</script>
+</html>
