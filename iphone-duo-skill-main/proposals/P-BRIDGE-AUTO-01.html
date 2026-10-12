@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P-BRIDGE-AUTO-01 · Duo wireframe</title>
+<style>
+  :root { --bg:#f4f4f2; --ink:#1b1b1b; --muted:#6b6b6b; --line:#d6d6d2; --frame:#111; --blk:#3a3a3a; --img:#5b5b5b; --cta:#2f7cf6; --rail:#262626; --fold:#e5484d; --note:#fff7d6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  main { max-width:1500px; margin:0 auto; padding:24px 16px 80px; }
+  h1 { font-size:22px; margin:0 0 4px; } h2 { font-size:18px; margin:40px 0 8px; border-top:2px solid var(--ink); padding-top:12px; }
+  h3 { font-size:15px; margin:28px 0 4px; } .muted { color:var(--muted); }
+  .box { background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px 16px; margin:12px 0; }
+  .note { background:var(--note); }
+  table { border-collapse:collapse; width:100%; font-size:13px; } td,th { border:1px solid var(--line); padding:4px 8px; text-align:left; vertical-align:top; }
+  .row { display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; margin:8px 0 4px; }
+  .cfg { font-size:11px; color:var(--muted); margin-bottom:4px; }
+  .frame { position:relative; background:var(--frame); overflow:hidden; border-radius:10px; }
+  .b { position:absolute; display:flex; align-items:center; justify-content:center; text-align:center; color:#eee; font-size:9px; line-height:1.15; padding:1px; overflow:hidden; border-radius:3px; }
+  .img { background:repeating-linear-gradient(45deg,#4d4d4d 0 6px,#575757 6px 12px); color:#ddd; }
+  .fade { background:linear-gradient(90deg,rgba(17,17,17,0),#111); }
+  .fadev { background:linear-gradient(180deg,rgba(17,17,17,0),#111); }
+  .t { background:#4a4a4a; } .t1 { background:#6a6a6a; font-weight:600; }
+  .cta { background:var(--cta); border-radius:12px; font-weight:600; }
+  .rail { background:var(--rail); border-left:1px solid #444; color:#aaa; flex-direction:column; justify-content:flex-start; gap:4px; padding-top:6px; }
+  .rb { width:70%; aspect-ratio:1; border-radius:50%; background:#3c3c3c; display:flex; align-items:center; justify-content:center; font-size:8px; }
+  .tabs { border-radius:18px; background:#3c3c3c; }
+  .tb { background:#1f1f1f; border-bottom:1px solid #444; color:#aaa; }
+  .dim { background:rgba(0,0,0,.55); border-radius:0; }
+  .menu { background:#2c2c2c; border:1px solid #555; border-radius:10px; }
+  .sheet { background:#262626; border:1px solid #555; border-radius:14px 14px 0 0; align-items:flex-start; padding-top:4px; }
+  .card { background:#333; border:1px solid #4a4a4a; border-radius:8px; }
+  .chip { background:#383838; border-radius:10px; }
+  .fold { position:absolute; top:0; bottom:0; width:0; border-left:1px dashed var(--fold); }
+  .safe { position:absolute; top:0; bottom:0; border-left:1px dotted #8bd18b; }
+  .legend span { display:inline-block; margin-right:14px; font-size:12px; }
+  .sw { display:inline-block; width:12px; height:12px; vertical-align:-2px; margin-right:4px; border-radius:2px; }
+  .state { display:inline-block; font-size:11px; background:#e9eefc; border-radius:4px; padding:0 6px; margin-right:4px; }
+  .keep { color:#0a7a2f; } .chg { color:#b15c00; }
+  @media (max-width:700px){ .row { gap:10px; } }
+</style>
+</head>
+<body>
+<main>
+<h1>P-BRIDGE-AUTO-01 v0.1 — Bridge + Automation trên iPhone Duo (C1–C4)</h1>
+<p class="muted">Wireframe khối/nhãn theo WORKFLOW bước 5 (WF04). Chờ duyệt — chưa dựng Figma. Toạ độ theo safe-area v2: C1 466×678 rail 382 · C2 678×466 rail 594 · C3 669×951 toolbar 84 / inset dưới 856 · C4 951×669 rail 867, trục gập 475,5. Ngày 2026-10-09.</p>
+<div class="legend box">
+  <span><i class="sw" style="background:#575757"></i>ảnh/minh hoạ nguồn</span>
+  <span><i class="sw" style="background:#6a6a6a"></i>tiêu đề</span>
+  <span><i class="sw" style="background:#4a4a4a"></i>text</span>
+  <span><i class="sw" style="background:var(--cta)"></i>nút chính</span>
+  <span><i class="sw" style="background:var(--rail)"></i>rail Duo (kit)</span>
+  <span><i class="sw" style="border:1px dashed var(--fold)"></i>trục gập x475,5</span>
+  <span><i class="sw" style="border:1px dotted #8bd18b"></i>mép safe area</span>
+</div>
+
+<div class="box">
+<b>Hiểu nguồn (bước 1)</b>
+<table>
+<tr><th>Luồng</th><th>Nguồn</th><th>Đường đi</th></tr>
+<tr><td>Bridge</td><td>page Connect Light, section <code>21203:21243</code></td><td>Scan For Devices (+ prompt Local Network của hệ thống) → Scan Now → Press The Button (4 khung: chờ → vòng sáng → zoom) → Connect Successfully → Bridge Connected! (paywall, Close (xmark.circle.fill, glyph nguồn), “Light it up”). Lỗi: không tìm thấy → <b>No Device Found</b> (frame tên <code>timeout_v2</code>) · user không bấm nút → <b>Connection Timed Out</b> (frame tên <code>nodevice_v2</code>) · cả hai có Try Again. Tên frame nguồn bị đảo so với nội dung — bản Duo đặt tên theo nội dung.</td></tr>
+<tr><td>Automation</td><td>page Automation [Nav], section <code>19486:78372</code></td><td>Lần đầu: hero + đồng hồ chạy (4 khung 07:57→08:00) → Add → menu Custom / Turn On/Off / X (Custom “về luồng Automation cũ”, X → màn Automations có chips) → Turn On/Off → Add light to room (chọn đèn) → Add → màn chỉnh: Turn the Lights [hành động ▾] + For me at [giờ ▾] → Save → danh sách Automations (card) → bấm item quay lại màn chỉnh. Sticky: hành động dùng <b>dropdown hệ thống</b>, giờ dùng <b>chọn time hệ thống</b>; lần sau vào luồng bắt đầu ở danh sách hoặc màn chips.</td></tr>
+</table>
+<p><b>Không dựng</b> (spec): prompt Local Network (system, HIG-19 — như OB-04 ATT); khung zoom <code>21188:20310</code> và 3 khung đồng hồ 07:57–07:59 (hoạt ảnh); dropdown hành động (pull-down menu hệ thống neo vào nút); menu Add trên danh sách/màn chips (cùng thành phần với AU-02). Không thêm action, nhãn hay feature ngoài nguồn.</p>
+</div>
+
+<div class="box">
+<b>Kit → HIG → ref (bước 2–4)</b>
+<ul>
+<li><b>Kit local:</b> rail <code>Duo / Vertical Bar (kit structure)</code> như POLISH-01 (status → Back/Close → actions; tab bar neo đáy); <code>Toolbar - Top - iPhone Duo</code> (C1/C3 Large Title 126, C2/C4 Compact 84); C3 <code>Tab Bar - iPhone</code> ở đáy; sheet theo bounds <code>iPhone Duo/Sheets</code> (C1 x8–458, C2 8–670, C3 8–661, C4 149–802). Reuse linked; icon tab lấy instance nguồn, không detach (bài học AUDIT-01 mục 5).</li>
+<li><b>HIG:</b> HIG-02 bars cạnh bên · HIG-04 không khối nào qua trục gập · HIG-05 controls gần vùng nội dung · HIG-15 trạng thái chờ/quét không giả tiến độ · HIG-16/17 lỗi inline + Try Again, sheet có Back/Save rõ nghĩa · HIG-19 prompt hệ thống không mô phỏng.</li>
+<li><b>Ref đã xem 2026-10-09:</b> REF-01 Detail (Apple Newsroom): media pane trái, danh sách pane phải; rail = status → Back → nhóm action → nút chính màu ở cuối. REF-02 Mail inner (HIG): list trái, detail phải, action của vùng nằm ở header vùng. <i>Áp dụng:</i> màn “một đối tượng + công cụ” (Bridge, màn chỉnh automation) → ảnh trái / chữ + nút phải (companion); danh sách → giữ cột, không tự tạo detail. <i>Không áp dụng:</i> màu/kiểu chữ của app khác.</li>
+</ul>
+</div>
+
+<div class="box note">
+<b>Cần anh quyết (bước 6)</b>
+<ol>
+<li><b>Phạm vi:</b> 16 màn/trạng thái × 4 cấu hình = 64 frame (danh sách bên dưới). Hay chỉ màn chính, bỏ các frame trạng thái (BR-02 chờ, AU-04 On/Off)?</li>
+<li><b>AU-06 danh sách C4:</b> đề xuất A — giữ một cột card trong pane trái 368, pane phải trống khi chỉ có 1 card (card tiếp theo chảy sang pane phải). Phương án B — list-detail kiểu Mail (bấm card → màn chỉnh hiện ở pane phải) là <b>đổi điều hướng</b>, cần trạng thái “chưa chọn” mới; chỉ làm nếu anh duyệt.</li>
+<li><b>BR-04 paywall C4/C2:</b> ảnh trái, tiêu đề + giá + “Light it up” phải — cùng pattern hero của Onboarding C4, không chia gói/so sánh giá (guide dual-pane cấm “paywall hai pane” kiểu đó). Đồng ý?</li>
+<li><b>AU-05 chọn giờ:</b> dựng sheet theo kit với header nguồn Back / Choose Time / Save + wheel hệ thống; dropdown hành động chỉ ghi spec, không vẽ. Đồng ý?</li>
+</ol>
+</div>
+
+<div id="out"></div>
+
+<h2>Rủi ro / chưa kiểm chứng</h2>
+<ul>
+<li>Màn hero C1 cao 678 (nguồn 844): ảnh Bridge bị thu nhỏ/cắt; C2 466 cao, BR-04 và AU-04 phải dồn khối — nếu không vừa sẽ cho cuộn (ghi “scroll” như các màn trước).</li>
+<li>Hoạt ảnh (đèn vòng sáng, zoom, đồng hồ) chỉ thể hiện bằng frame trạng thái; thời lượng, timeout và điều kiện chuyển màn cần dev xác nhận (HIG-15).</li>
+<li>Sheet C4 theo bounds kit vắt qua trục gập (giống Survey/Settings đã làm) — container hệ thống tự thích ứng khi gập một phần, cần simulator.</li>
+<li>Chưa kiểm Dynamic Type, VoiceOver (nhãn nút symbol trên rail, wheel giờ), resize/continuity giữa outer và inner.</li>
+</ul>
+</main>
+
+<script>
+const S = 0.34; // scale
+const CFG = {
+  C1:{w:466,h:678,label:'C1 Outer Portrait 466×678',rail:382},
+  C2:{w:678,h:466,label:'C2 Outer Landscape 678×466',rail:594},
+  C3:{w:669,h:951,label:'C3 Inner Portrait 669×951'},
+  C4:{w:951,h:669,label:'C4 Inner Landscape 951×669',rail:867,fold:475.5},
+};
+// block helpers: [cls,x,y,w,h,label]
+const B=(c,x,y,w,h,l='')=>({c,x,y,w,h,l});
+function rail(cfg,{back,close,actions=[],tabs}={}){
+  const C=CFG[cfg]; const out=[];
+  if(cfg==='C3'){ out.push(B('tb',0,0,669,84,'Toolbar Top Duo · status'+(back?' · Back':'')+(close?' · Close':'')+(actions.length?' · '+actions.join(' '):''))); if(tabs) out.push(B('tabs',134,868,402,62,'Tab Bar iPhone · '+tabs)); return out; }
+  const items=['status']; if(back) items.push('Back'); if(close) items.push('Close'); items.push(...actions);
+  out.push({c:'rail',x:C.rail,y:0,w:84,h:C.h,l:'',items,tabs});
+  return out;
+}
+function render(screen){
+  const wrap=document.createElement('div');
+  wrap.innerHTML=`<h3>${screen.id} · ${screen.name}</h3><div class="muted">${screen.src}</div>`+
+    (screen.states?`<div>${screen.states.map(s=>`<span class="state">${s}</span>`).join('')}</div>`:'')+
+    (screen.note?`<div style="font-size:13px;margin-top:4px">${screen.note}</div>`:'');
+  const row=document.createElement('div'); row.className='row';
+  for(const cfg of ['C1','C2','C3','C4']){
+    const C=CFG[cfg]; const col=document.createElement('div');
+    col.innerHTML=`<div class="cfg">${C.label}${screen.scroll&&screen.scroll[cfg]?' · scroll '+screen.scroll[cfg]:''}</div>`;
+    const H=(screen.scroll&&screen.scroll[cfg])||C.h;
+    const f=document.createElement('div'); f.className='frame'; f.style.width=C.w*S+'px'; f.style.height=H*S+'px';
+    const blocks=[...screen[cfg]];
+    for(const b of blocks){
+      const d=document.createElement('div'); d.className='b '+b.c;
+      Object.assign(d.style,{left:b.x*S+'px',top:b.y*S+'px',width:b.w*S+'px',height:b.h*S+'px'});
+      if(b.c==='rail'){ d.style.height=H*S+'px'; d.innerHTML=b.items.map(i=>`<div class="rb">${i==='status'?'9:41':i}</div>`).join('')+(b.tabs?`<div style="position:static;margin-top:auto;margin-bottom:8px;width:70%;height:${4*48*S}px;font-size:7px;writing-mode:vertical-rl" class="b tabs" title="${b.tabs}">tab bar Duo</div>`:''); d.style.position='absolute'; }
+      else d.textContent=b.l;
+      f.appendChild(d);
+    }
+    if(C.rail){ const s=document.createElement('div'); s.className='safe'; s.style.left=C.rail*S+'px'; f.appendChild(s); }
+    if(C.fold){ const s=document.createElement('div'); s.className='fold'; s.style.left=C.fold*S+'px'; f.appendChild(s); }
+    col.appendChild(f); row.appendChild(col);
+  }
+  wrap.appendChild(row); return wrap;
+}
+
+// ---------- geometry ----------
+// common columns
+const c1x=20,c1w=360, c3x=156,c3w=360, rx=488,rw=368, lx=20,lw=368, c2x=216,c2w=360;
+function hero(cfg,{title,desc,cta,imgLabel,imgPos='bottom',close=false,extra=[] ,tabs=null}){
+  const out=[];
+  if(cfg==='C1'){
+    if(imgPos==='bottom'){ out.push(B('img',0,300,382,378,imgLabel)); }
+    else { out.push(B('img',0,0,382,300,imgLabel)); out.push(B('fadev',0,200,382,100)); }
+    const ty = imgPos==='bottom'?148:324;
+    out.push(B('t1',c1x,ty,c1w,34,title)); if(desc) out.push(B('t',c1x,ty+44,c1w,44,desc));
+    let y=ty+(desc?100:46); for(const e of extra){ out.push(B(e.c,c1x,y,c1w,e.h,e.l)); y+=e.h+12; }
+    if(cta) out.push(B('cta',c1x,tabs?520:598,c1w,56,cta));
+    out.push(...rail(cfg,{close,tabs}));
+  } else if(cfg==='C2'){
+    out.push(B('img',0,0,288,466,imgLabel)); out.push(B('fade',196,0,92,466));
+    let y = cta?96:150; out.push(B('t1',c2x,y,c2w,34,title)); y+=44; if(desc){ out.push(B('t',c2x,y,c2w,44,desc)); y+=56; }
+    for(const e of extra){ out.push(B(e.c,c2x,y,c2w,e.h,e.l)); y+=e.h+12; }
+    if(cta) out.push(B('cta',c2x,Math.max(y+12,352),c2w,56,cta));
+    out.push(...rail(cfg,{close,tabs}));
+  } else if(cfg==='C3'){
+    out.push(...rail(cfg,{close,tabs}));
+    if(imgPos==='bottom'){ out.push(B('img',0,440,669,416,imgLabel)); }
+    else { out.push(B('img',0,84,669,420,imgLabel)); out.push(B('fadev',0,404,669,100)); }
+    const ty= imgPos==='bottom'?236:528;
+    out.push(B('t1',c3x,ty,c3w,34,title)); if(desc) out.push(B('t',c3x,ty+44,c3w,44,desc));
+    let y=ty+(desc?100:46); for(const e of extra){ out.push(B(e.c,c3x,y,c3w,e.h,e.l)); y+=e.h+12; }
+    if(cta) out.push(B('cta',c3x,tabs?776:776,c3w,56,cta));
+  } else {
+    out.push(B('img',0,0,476,669,imgLabel)); out.push(B('fade',296,0,180,669));
+    let blockH=34+(desc?56:12)+extra.reduce((a,e)=>a+e.h+12,0)+(cta?104:0);
+    let y=Math.round((669-blockH)/2/4)*4;
+    out.push(B('t1',rx,y,rw,34,title)); y+=44; if(desc){ out.push(B('t',rx,y,rw,44,desc)); y+=56; }
+    for(const e of extra){ out.push(B(e.c,rx,y,rw,e.h,e.l)); y+=e.h+12; }
+    if(cta) out.push(B('cta',rx,y+48,rw,56,cta));
+    out.push(...rail(cfg,{close,tabs}));
+  }
+  return out;
+}
+function errorScreen(cfg,{title,desc,illo}){
+  const out=[];
+  if(cfg==='C1'){ out.push(B('t1',c1x,136,c1w,34,title),B('t',c1x,180,c1w,44,desc),B('img',100,264,200,200,illo),B('cta',c1x,598,c1w,56,'Try Again')); }
+  if(cfg==='C2'){ out.push(B('img',56,132,200,200,illo),B('t1',296,128,280,34,title),B('t',296,172,280,64,desc),B('cta',296,268,280,56,'Try Again')); }
+  if(cfg==='C3'){ out.push(B('t1',c3x,236,c3w,34,title),B('t',c3x,280,c3w,44,desc),B('img',236,352,200,200,illo),B('cta',c3x,776,c3w,56,'Try Again')); }
+  if(cfg==='C4'){ out.push(B('img',104,236,200,200,illo),B('t1',rx,224,rw,34,title),B('t',rx,268,rw,44,desc),B('cta',rx,360,rw,56,'Try Again')); }
+  out.push(...rail(cfg,{})); return out;
+}
+const screens=[];
+// ===== BRIDGE =====
+screens.push({flow:'Bridge',id:'BR-01',name:'Scan For Devices',src:'nguồn 21188:20268 · prompt Local Network 21403:3058 = system, không dựng',
+  note:'<span class="keep">Giữ</span>: tiêu đề, mô tả, ảnh Bridge cắt đáy, Scan Now. <span class="chg">Đổi</span>: C2/C4 ảnh sang trái + fade, chữ + nút sang phải.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,hero(c,{title:'Scan For Devices',desc:'Make sure all devices… same Wi-Fi.',cta:'Scan Now',imgLabel:'ảnh Bridge (cắt)'})]))});
+screens.push({flow:'Bridge',id:'BR-02',name:'Press The Button',src:'nguồn 21188:20300 (vòng sáng) · trạng thái chờ 21188:20292 · zoom 21188:20310 = hoạt ảnh, spec',states:['vòng sáng (frame chính)','chờ bấm (frame trạng thái)'],
+  note:'Không có nút — màn chờ user bấm nút vật lý; timeout → BR-06.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,hero(c,{title:'Press The Button',desc:'Make sure all devices… same Wi-Fi.',imgLabel:'ảnh Bridge — vòng sáng',imgPos:'bottom'})]))});
+screens.push({flow:'Bridge',id:'BR-03',name:'Connect Successfully',src:'nguồn 21188:20328 — màn chuyển tiếp, không action',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,hero(c,{title:'Connect Successfully',imgLabel:'ảnh Bridge nghiêng',imgPos:'bottom'})]))});
+screens.push({flow:'Bridge',id:'BR-04',name:'Bridge Connected! (paywall)',src:'nguồn 21188:21050 · Close (xmark.circle.fill, glyph nguồn) (Trailing) → rail / toolbar C3',
+  note:'<span class="keep">Giữ</span>: ảnh + badge ✓, tiêu đề, giá “$99.99 lifetime / One time purchase”, Light it up, Close. Không thêm gói/so sánh.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,hero(c,{title:'Bridge Connected!',cta:'Light it up',imgLabel:'ảnh Bridge + ✓',imgPos:'top',close:true,extra:[{c:'t',h:46,l:'Full control for just $99.99 lifetime · One time purchase'}]})]))});
+screens.push({flow:'Bridge',id:'BR-05',name:'No Device Found',src:'nguồn 21203:21142 (tên frame timeout_v2)',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,errorScreen(c,{title:'No Device Found',desc:'Make sure your device is powered on…',illo:'minh hoạ Bridge + kính lúp'})]))});
+screens.push({flow:'Bridge',id:'BR-06',name:'Connection Timed Out',src:'nguồn 21203:21244 (tên frame nodevice_v2)',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,errorScreen(c,{title:'Connection Timed Out',desc:'Press the button on your Bridge…',illo:'minh hoạ Bridge + cảnh báo'})]))});
+
+// ===== AUTOMATION =====
+const TABS='Home · Voice Control · Automations · Settings';
+screens.push({flow:'Automation',id:'AU-01',name:'Automations — lần đầu (hero + đồng hồ)',src:'nguồn 19486:78550 (08:00) · 78373/78432/78491 = khung hoạt ảnh, spec',
+  note:'Tab bar 4 tab nguồn → rail (C1/C2/C4) / Tab Bar iPhone đáy (C3), tab Automations selected.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,hero(c,{title:'Automations',desc:'With automatic mode, you can build…',cta:'+ Add New Automations',imgLabel:'ảnh phòng + đồng hồ 08:00',imgPos:'top',tabs:TABS})]))});
+function overlay(cfg){
+  const C=CFG[cfg]; const base=hero(cfg,{title:'Automations',desc:'With automatic mode…',cta:'+ Add New Automations',imgLabel:'ảnh phòng',imgPos:'top',tabs:TABS});
+  const m = cfg==='C1'?[100,260]: cfg==='C2'?[300,140]: cfg==='C3'?[236,420]:[568,240];
+  return [...base,B('dim',0,0,C.w,C.h,''),B('menu',m[0],m[1],200,96,'Custom · Turn On/Off'),B('rb',m[0]+80,m[1]+112,40,40,'✕')];
+}
+screens.push({flow:'Automation',id:'AU-02',name:'Menu Add (Custom / Turn On/Off / X)',src:'nguồn 19486:78609 · cùng menu trên danh sách 79465 và màn chips 79643 → spec',
+  note:'C2/C4 đặt menu trong pane phải, nơi có nút Add — không căn giữa màn để tránh trục gập. Lớp dim phủ cả rail như nguồn phủ status bar.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,overlay(c)]))});
+function grid(cfg){
+  const out=[]; const tb=t=>out.push(...t);
+  const card=(x,y,w,l)=>B('card',x,y,w,w*0.95|0,l);
+  if(cfg==='C1'){ tb(rail('C1',{back:true})); out.push(B('tb',0,0,382,84,'Toolbar Duo · Add light to room')); out.push(B('t',20,96,360,20,'AVAILABLE DEVICES')); [0,1,2].forEach(i=>out.push(card(20+(i%2)*188,124+Math.floor(i/2)*176,172,'Lamp '+(i+1)+(i<2?' ✓':'')))); out.push(B('t',20,480,360,20,'BEDROOM')); out.push(card(20,508,172,'Lamp'),card(208,508,172,'Lamp')); out.push(B('cta',20,598,360,56,'Add lights')); }
+  if(cfg==='C2'){ tb(rail('C2',{back:true})); out.push(B('tb',0,0,594,84,'Toolbar Duo · Add light to room')); out.push(B('t',20,96,556,20,'AVAILABLE DEVICES')); [0,1,2].forEach(i=>out.push(card(20+i*188,124,172,'Lamp '+(i+1)+(i<2?' ✓':'')))); out.push(B('t',20,308,556,20,'BEDROOM')); out.push(card(20,336,172,'Lamp'),card(208,336,172,'Lamp')); out.push(B('cta',20,560,556,56,'Add lights')); }
+  if(cfg==='C3'){ tb(rail('C3',{back:true})); out.push(B('t1',20,96,629,30,'Add light to room')); out.push(B('t',20,140,629,20,'AVAILABLE DEVICES')); [0,1,2].forEach(i=>out.push(card(20+i*216,168,196,'Lamp '+(i+1)+(i<2?' ✓':'')))); out.push(B('t',20,380,629,20,'BEDROOM')); out.push(card(20,408,196,'Lamp'),card(236,408,196,'Lamp')); out.push(B('cta',156,776,360,56,'Add lights')); }
+  if(cfg==='C4'){ tb(rail('C4',{back:true})); out.push(B('tb',0,0,867,84,'Toolbar Duo · Add light to room')); out.push(B('t',lx,96,lw,20,'AVAILABLE DEVICES')); [0,1,2].forEach(i=>out.push(card(lx+(i%2)*192,124+Math.floor(i/2)*180,176,'Lamp '+(i+1)+(i<2?' ✓':'')))); out.push(B('t',rx,96,rw,20,'BEDROOM')); out.push(card(rx,124,176,'Lamp'),card(rx+192,124,176,'Lamp')); out.push(B('cta',rx,589,rw,56,'Add lights')); }
+  return out;
+}
+screens.push({flow:'Automation',id:'AU-03',name:'Add light to room',src:'nguồn 19486:79750 (đã chọn) · 19486:79738 (chưa chọn) = trạng thái, spec',scroll:{C2:640},
+  note:'C4: nhóm AVAILABLE DEVICES ở pane trái, các phòng ở pane phải, Add lights cuối pane phải. Card 176 không kéo giãn. Back nguồn → rail / toolbar leading.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,grid(c)]))});
+function editor(cfg,state){
+  const act = state==='def'?'Your Action ▾':state==='on'?'On ▾':'Off ▾'; const time= state==='def'?'9:26 ▾':'7:00 AM ▾';
+  const lamp = state==='off'?'ảnh đèn (tắt)':'ảnh đèn (sáng)'; const out=[];
+  const rows=(x,y,w)=>[B('t',x,y,w,40,'Turn the Lights  ['+act+']'),B('t',x,y+52,w,40,'For me at  ['+time+']')];
+  if(cfg==='C1'){ out.push(B('img',0,0,382,420,lamp),B('fadev',0,320,382,100),...rows(c1x,452,c1w),B('cta',c1x,598,c1w,56,'Save Automation'),...rail('C1',{back:true})); }
+  if(cfg==='C2'){ out.push(B('img',0,0,288,466,lamp),B('fade',196,0,92,466),...rows(312,140,264),B('cta',312,352,264,56,'Save Automation'),...rail('C2',{back:true})); }
+  if(cfg==='C3'){ out.push(...rail('C3',{back:true}),B('img',0,84,669,560,lamp),B('fadev',0,544,669,100),...rows(c3x,664,c3w),B('cta',c3x,776,c3w,56,'Save Automation')); }
+  if(cfg==='C4'){ out.push(B('img',0,0,476,669,lamp),B('fade',296,0,180,669),...rows(rx,236,rw),B('cta',rx,384,rw,56,'Save Automation'),...rail('C4',{back:true})); }
+  return out;
+}
+screens.push({flow:'Automation',id:'AU-04',name:'Màn chỉnh automation (Choose Lights ←)',src:'nguồn 19486:78657 (mặc định) · 78966 (On) · 79111 (Off)',states:['mặc định — Your Action','On','Off (ảnh đèn tắt)'],
+  note:'Companion: ảnh đèn trái, hai hàng chọn + Save phải (C2/C4). Nút “Your Action ▾” mở <b>pull-down menu hệ thống</b> (spec, không vẽ). Back “Choose Lights” → rail / toolbar leading. Wireframe hiện trạng thái mặc định.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,editor(c,'def')]))});
+function sheet(cfg){
+  const C=CFG[cfg]; const base=editor(cfg,'on');
+  const b= cfg==='C1'?[8,380,450,298]: cfg==='C2'?[8,120,662,346]: cfg==='C3'?[8,560,653,391]:[149,320,653,349];
+  return [...base,B('dim',0,0,C.w,C.h,''),B('sheet',...b,'Back · Choose Time · Save — wheel giờ hệ thống')];
+}
+screens.push({flow:'Automation',id:'AU-05',name:'Sheet chọn giờ',src:'nguồn 19486:79256 · sticky “Dùng chọn time của hệ thống”',
+  note:'Sheet theo bounds kit iPhone Duo/Sheets; nội dung là date picker wheel hệ thống. C1/C2 có dải inset phải 76 trong sheet.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,sheet(c)]))});
+function list(cfg){
+  const out=[];
+  if(cfg==='C1'){ out.push(B('tb',0,0,382,126,'Toolbar Duo Large Title · Automations'),B('chip',20,136,76,28,'PRO'),B('card',20,176,360,88,'±9:41 AM • Mo Tu Fr Sa · Automation 1 ▶'),...rail('C1',{actions:['+'],tabs:TABS})); }
+  if(cfg==='C2'){ out.push(B('tb',0,0,594,84,'Toolbar Duo Compact · Automations'),B('chip',20,96,76,28,'PRO'),B('card',20,136,360,88,'±9:41 AM • … · Automation 1 ▶'),...rail('C2',{actions:['+'],tabs:TABS})); }
+  if(cfg==='C3'){ out.push(...rail('C3',{actions:['+'],tabs:TABS}),B('t1',20,96,629,30,'Automations'),B('chip',20,136,76,28,'PRO'),B('card',20,176,629,88,'±9:41 AM • Mo Tu Fr Sa · Automation 1 ▶')); }
+  if(cfg==='C4'){ out.push(B('tb',0,0,867,84,'Toolbar Duo Compact · Automations'),B('chip',lx,96,76,28,'PRO'),B('card',lx,136,lw,88,'±9:41 AM • … · Automation 1 ▶'),B('t',rx,136,rw,88,'(card thứ 2+ chảy sang pane phải)'),...rail('C4',{actions:['+'],tabs:TABS})); }
+  return out;
+}
+screens.push({flow:'Automation',id:'AU-06',name:'Danh sách Automations',src:'nguồn 19486:79446 · bấm item → AU-04 · lần sau vào luồng bắt đầu ở đây',
+  note:'Phương án A (đề xuất). “+” nguồn → rail action / toolbar trailing C3. ProButton giữ trong nội dung như Home Duo. Phương án B list-detail chỉ làm nếu anh duyệt (câu hỏi 2).',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,list(c)]))});
+function chips(cfg){
+  const out=[]; const chipRows=(x,y,w)=>{ const r=[]; for(let i=0;i<3;i++) r.push(B('chip',x,y+i*44,w,36,i===0?'Yoga · Cinemazone · Wake Up':i===1?'Home Comming · Chill & Relax':'Work Mode · Cooking · Music')); return r; };
+  if(cfg==='C1'){ out.push(B('tb',0,0,382,126,'Toolbar Duo Large Title · Automations'),B('chip',20,136,76,28,'PRO'),B('img',151,180,80,80,'icon ⚡'),B('t1',20,272,360,28,'Make your life more Special'),B('t',20,304,360,40,'With automatic mode…'),...chipRows(20,356,360),B('cta',60,512,280,48,'+ Add new Automations'),...rail('C1',{actions:['+'],tabs:TABS})); }
+  if(cfg==='C2'){ out.push(B('tb',0,0,594,84,'Toolbar Duo Compact · Automations'),B('chip',20,96,76,28,'PRO'),B('img',20,140,72,72,'⚡'),B('t1',108,140,468,28,'Make your life more Special'),B('t',108,172,468,40,'With automatic mode…'),...chipRows(20,232,556),B('cta',148,376,280,48,'+ Add new Automations'),...rail('C2',{actions:['+'],tabs:TABS})); }
+  if(cfg==='C3'){ out.push(...rail('C3',{actions:['+'],tabs:TABS}),B('t1',20,96,629,30,'Automations'),B('chip',20,136,76,28,'PRO'),B('img',294,200,80,80,'⚡'),B('t1',156,296,360,28,'Make your life more Special'),B('t',156,328,360,40,'With automatic mode…'),...chipRows(156,384,360),B('cta',196,536,280,48,'+ Add new Automations')); }
+  if(cfg==='C4'){ out.push(B('tb',0,0,867,84,'Toolbar Duo Compact · Automations'),B('chip',lx,96,76,28,'PRO'),B('img',164,212,80,80,'⚡'),B('t1',lx,308,lw,28,'Make your life more Special'),B('t',lx,340,lw,40,'With automatic mode…'),...chipRows(rx,236,rw),B('cta',rx+44,384,280,48,'+ Add new Automations'),...rail('C4',{actions:['+'],tabs:TABS})); }
+  return out;
+}
+screens.push({flow:'Automation',id:'AU-07',name:'Automations — màn chips (sau khi bấm X / lần sau vào luồng)',src:'nguồn 19486:79507 · 79575 · menu Add trên màn này 79643 → spec (AU-02)',
+  note:'C2/C4: phần giới thiệu (icon, tiêu đề, mô tả) trái; chips + nút Add phải — giữ thứ tự đọc nguồn.',
+  ...Object.fromEntries(['C1','C2','C3','C4'].map(c=>[c,chips(c)]))});
+
+const out=document.getElementById('out'); let last='';
+for(const s of screens){ if(s.flow!==last){ const h=document.createElement('h2'); h.textContent=s.flow==='Bridge'?'Luồng Bridge — page Connect Light':'Luồng Automation mới — page Automation [Nav]'; out.appendChild(h); last=s.flow; } out.appendChild(render(s)); }
+// summary table
+const t=document.createElement('div'); t.className='box';
+const rows=screens.map(s=>`<tr><td>${s.id}</td><td>${s.name}</td><td>${(s.states||['—']).join(' / ')}</td><td>${(s.states?s.states.filter(x=>!/spec/.test(x)).length:1)*4}</td></tr>`).join('');
+t.innerHTML=`<b>Đầu ra đề xuất</b><table><tr><th>ID</th><th>Màn</th><th>Trạng thái dựng frame</th><th>Frame</th></tr>${rows}</table><p class="muted">Tổng: BR 7 + AU 9 màn/trạng thái × 4 = 64 frame (BR-02 2 trạng thái, AU-04 3 trạng thái). Section mới “Duo C1–C4 — Bridge” trên page Connect Light và “Duo C1–C4 — Automation mới” trên page Automation [Nav].</p>`;
+out.prepend(t);
+</script>
+</body>
+</html>
